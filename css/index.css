@@ -1,0 +1,447 @@
+body
+{
+    margin:0px;
+}
+header
+{
+    background:#86AFF1 ;
+    display: block;
+    padding: 10px;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+input[type=button],button
+{
+    outline: none;
+}
+#dialog
+{
+    width: 60%;
+    position: absolute;
+    top: 0px;
+    left:20%;
+    display: none;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border:1px solid #4E4C4C;
+    border-top: 0px;
+    -webkit-box-shadow: 0px 3px 4px #787878;
+    -moz-box-shadow: 0px 3px 4px #787878;
+    box-shadow:0px 3px 4px #787878;
+    background-color:#ffffff;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+header a:nth-child(1)
+{
+    font-size:30px;
+}
+header a:nth-child(2)
+{
+    font-size:21px;
+    float: right;
+}
+header img
+{
+    vertical-align: middle;
+}
+header a
+{
+    text-decoration: none;
+    color:#FFFFFF;
+}
+
+section
+{
+    display: none;
+}
+section section-head,section section-body
+{
+    display: block;
+}
+section-head img
+{
+    vertical-align:middle;
+    margin-right: 10px;
+}
+section-head span
+{
+    font-size: 22px;
+    font-family: serif;
+}
+section-head,section-body
+{
+    width:50%;
+    margin: auto;
+    height:auto;
+    border:1px solid #4E4C4C;
+    padding-top:25px;
+    padding-bottom: 25px;
+    border-radius:8px;
+    -webkit-box-shadow: 0px 0px 3px rgba(2, 2, 2, 1);
+    -moz-box-shadow: 0px 0px 3px rgba(2, 2, 2, 1);
+    box-shadow:0px 0px 3px rgba(2, 2, 2, 1);
+    background-color:#f1f1f1;
+    overflow:visible;
+    text-align: center;
+}
+section-head    /*override above style*/
+{
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+section-body    /*override above style*/
+{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+section-body .txtf,#dialog .txtf
+{
+    width:70%;
+    margin: auto;
+    border:1px #1A6058;
+    border-style:solid;
+    border-radius:3px;
+    height:30px;
+    font-size:16px;
+    margin-bottom:8px;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+section-body #date,#tables
+{
+    width: 40%;
+}
+section-body #time,#seats
+{
+    width: 29%;
+}
+/* color of placeholder inside of textbox*/
+::-webkit-input-placeholder {
+    color: #c6c6c6;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #c6c6c6;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #c6c6c6;
+}
+
+:-ms-input-placeholder {
+    color: #c6c6c6;
+}
+
+/* change color of placeholder inside of textbox on focus*/
+input:focus::-webkit-input-placeholder {
+    color: #AECAF6;
+}
+input:focus:-moz-placeholder { /* Firefox 18- */
+    color: #c6c6c6;
+}
+
+input:focus::-moz-placeholder {  /* Firefox 19+ */
+    color: #c6c6c6;
+}
+input:focus:-ms-input-placeholder {
+    color: #AECAF6;
+}
+
+/* change color of textbox on focus*/
+section-body .txtf:focus
+{
+    border:1px solid #B2D1FF;
+    box-shadow: 0 0 4px rgba(0, 200, 204, 0.7);
+}
+section-body .buttonclass,#dialog .buttonclass
+{
+    border:1px;
+    border-style:solid;
+    border-radius:3px;
+    font-size:19px;
+    font-weight:bold;
+    height:32px;
+    color:#FFF;
+    background:#357ae8;
+    letter-spacing:1px;
+    width: 20%;
+    margin-right:3%;
+    cursor: pointer;
+}
+
+.img   /*class for true tick image*/
+{
+    position:absolute;
+    margin-left: 10px;
+}
+.validation-image
+{
+    background:url(../Images/error.png);
+    background-repeat:no-repeat;
+    background-position:right;
+    background-size:35px 35px;
+    background-color:#FFF;
+}
+
+.tooltip
+{
+    position: relative;
+    margin: auto;
+    overflow: visible;
+}
+
+.tooltip:before
+{
+    background:#1E1E1E;
+    opacity:0.7;
+    border-radius: 5px;
+    color: #fff;
+    font-size:15px;
+    content:attr(description);
+    padding: 5px 15px;
+    position:absolute;
+    width: 35%;
+    left: 32%;
+    bottom: 6px;
+
+}
+.tooltip:after
+{
+    width:0px;
+    height:0px;
+    border: solid;
+    border-color: #1E1E1E transparent transparent transparent ;
+    border-width: 6px 6px  0 6px;
+    opacity:0.7;
+    content:"";
+    position:absolute;
+    bottom: 0px;
+    left:50%;
+}
+
+/*style for for switch start*/
+#preference
+{
+    margin-bottom: 40px;
+}
+#setting
+{
+    float: right;
+}
+#setting:after
+{
+    content: "";
+    clear: both;
+}
+#setting span
+{
+    font-size: 21px;
+}
+#switch
+{
+    position: absolute;
+    margin-left: -2500px;
+    visibility: hidden;   /*disappear from screen*/
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+#switch+label
+{
+    float: right;
+    display:block;
+    position: relative;     /*child elements move absolute to this*/
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    background: #dddddd;
+    -moz-border-radius: 30px;  -ms-border-radius: 30px;  -o-border-radius: 30px;  border-radius: 30px;
+}
+#switch+label:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    right: 1px;
+    background: #f1f1f1;
+    -moz-border-radius: 30px;  -ms-border-radius: 30px;  -o-border-radius: 30px;  border-radius: 30px;
+    -webkit-transition: background 0.4s;  -moz-transition: background 0.4s;  -o-transition: background 0.4s;  transition: background 0.4s;
+}
+#switch+label:after
+{
+    width: 28px;
+    display: block;
+    position: absolute;
+    content: "";
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    background: #FFF;
+    -webkit-transition: margin 0.4s;  -moz-transition: margin 0.4s;  -o-transition: margin 0.4s;  transition: margin 0.4s;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 30px;  -ms-border-radius: 30px;  -o-border-radius: 30px;  border-radius: 30px;
+}
+#switch:checked+label:before
+{
+    background: #357AE8;
+}
+#switch:checked+label:after
+{
+    margin-left: 30px;
+}
+/*style for switch ends*/
+
+form #edit_reservation
+{
+    font-size: 20px;text-decoration:none;border-bottom: 1px dotted;color: #1a6fef;
+}
+footer
+{
+    width: 100%;
+    display: none;
+    background: #EEEEEE;
+    font-size: 18px;
+    text-align: center;
+    padding: 0 0 20px 0;
+    margin: 300px 0 0 0;
+    color: #086FB6;
+}
+footer hr
+{
+    height: 1px;background: #9b9b9b; padding-bottom: 1px;
+}
+footer:after
+{
+    content: "";  display: table;  clear: both;
+}
+footer address
+{
+    width: 70%;  float: left;
+}
+footer location
+{
+    width: 30%;  float: right;
+}
+footer location button img
+{
+    vertical-align:middle;
+    padding-right: 3px;
+}
+footer location button
+{
+    height: 30px;
+    margin-top: 35px;
+    color: #086FB6;
+    font-size: 16px;
+}
+footer location button:focus
+{
+    border: #086FB6;
+}
+/*media queries*/
+@media screen and (max-width:800px)
+{
+    #dialog
+    {
+        width: 75%;
+        left: 12.5%;
+    }
+    section-head,section-body
+    {
+        width:70%;
+    }
+    section-body .txtf,#dialog .txtf
+    {
+        width:85%;
+    }
+    section-body #date,#tables
+    {
+        width: 49%;
+    }
+    section-body #time,#seats
+    {
+        width: 35%;
+    }
+
+}
+
+@media screen and (max-width:640px)
+{
+    #dialog
+    {
+        width: 90%;
+        left: 5%;
+    }
+    section-head,section-body
+    {
+        width:85%;
+    }
+
+    section-body .txtf,#dialog .txtf
+    {
+        width:80%;
+    }
+    section-body #date,#tables
+    {
+        width: 46%;
+    }
+    section-body #time,#seats
+    {
+        width: 33%;
+    }
+
+}
+
+@media screen and (max-width:480px)
+{
+    #dialog
+    {
+        width: 90%;
+        left: 5%;
+    }
+    form div
+    {
+        padding-left: 10px;
+    }
+    section-head,section-body
+    {
+        width:98%;
+        text-align: left;
+    }
+    section-body .txtf,#dialog .txtf
+    {
+        width:80%;
+        height: 26px;
+        font-size: 14px;
+    }
+    section-body .buttonclass,#dialog .buttonclass
+    {
+        width: 30%;
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    section-body #date,#tables
+    {
+        width: 44%;
+    }
+    section-body #time,#seats
+    {
+        width: 34%;
+    }
+    .tooltip:before
+    {
+        width: 70%;
+        left: 10%;
+    }
+}

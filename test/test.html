@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $.ajax(
+                {
+                    url:'proxy.php',
+                    cache:'false',
+                    data:{path:'name=lok'},
+                    dataType:'json',
+                    success:function(data)
+                    {
+                        $.each(data,function(index,row)
+                        {
+                            console.log(row);
+                            console.log("ook");
+                        });
+                    }
+                });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

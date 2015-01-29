@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Images/favicoon.png" />
+    <title>Owner Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.3/css/dataTables.responsive.css">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="css/owner.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="Js/owner.js"></script>
+</head>
+<body>
+<header>
+    <a href="index.html"><img src="Images/restaurant.png">&nbsp;Eatery</a>
+    <a href="index.html" style="float: right;">Logout</a>
+</header>
+<div id="tabs">
+    <ul>
+        <li><a href="#reservations"><span class="glyphicon glyphicon-calendar"></span><span> Reservations</span></a></li>
+        <li><a href="#seating"><span class="glyphicon glyphicon-th"></span><span> Seating</span></a></li>
+        <li><a href="#profile"><span class="glyphicon glyphicon-user"></span><span> Profile</span></a></li>
+        <li><a href="#settings"><span class="glyphicon glyphicon-cog"></span><span> App Settings</span></a></li>
+        <li><a href="#contacts"><span class="glyphicon glyphicon-envelope"></span><span> Contacts</span></a></li>
+    </ul>
+    <div id="reservations">
+    </div>
+
+    <div id="seating">
+    </div>
+
+    <div id="profile">
+    </div>
+
+    <div id="settings">
+        <form action="#" method="post" onsubmit="return checkValidations()">
+            <b>Working days:</b>
+            <div id="workingDays" class="checkbox">
+                    <label><input type="checkbox" id="monday">monday</label>
+                    <label><input type="checkbox"  id="tuesday">tuesday</label>
+                    <label><input type="checkbox"  id="wednesday">wednesday</label>
+                    <label><input type="checkbox"  id="thursday">thursday</label>
+                    <label><input type="checkbox"  id="friday">friday</label>
+                    <label><input type="checkbox" id="saturday">saturday</label>
+                    <label><input type="checkbox"  id="sunday">sunday</label>
+            </div>
+            <b>Working Timings:</b>
+            <div id="workingTimes">
+                Opens at: <input type="text" id="openTime" class="txtf" placeholder="0-24 Ex:17:00" onfocus="(this.type='time')" onblur="this.type='text'"></br>
+                Closes at:<input type="text" id="closeTime" class="txtf" placeholder="0-24 Ex:17:00" onfocus="(this.type='time')" onblur="this.type='text'">
+            </div>
+            <div id="autoAssign">
+                <span><b>Auto reservation:</b></span> <input id="switch" type="checkbox" checked><label for="switch"></label>
+            </div>
+            <div style="margin-bottom: 25px;margin-top: 25px;">
+                <input type="button" value="Save" class="buttonclass" >
+            </div>
+        </form>
+    </div>
+
+    <div id="contacts">
+    </div>
+</div>
+
+<div id="dialog" title="Reservation details">
+</div>
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/responsive/1.0.3/js/dataTables.responsive.min.js"></script>
+</html>

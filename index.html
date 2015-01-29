@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Images/favicoon.png" />
+    <title>Eatery Home</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="dialog">
+    <div> <input type="text" class="txtf" placeholder=" Confirmation Number" autofocus="true"></div>
+    <div> <input type="button" value="Edit" class="buttonclass"><input type="button" value="Delete" class="buttonclass"></div>
+</div>
+<header>
+    <a href="index.html"><img src="Images/restaurant.png">&nbsp;Eatery</a>
+    <a href="#" onclick="loadSection()">Owner? login</a>
+</header>
+
+<section id="customer_section">
+    <section-head>
+        <img src="Images/booking-32.png">
+        <span>Make a reservation</span>
+    </section-head>
+    <section-body>
+        <div id="preference">
+            <div id="setting">
+                <span>save preferences</span>
+                <input id="switch"  type="checkbox">
+                <label for="switch"></label>
+            </div>
+        </div>
+        <form action="#" method="post"  onsubmit="return checkValidations()" onreset="resetForm()" novalidate>
+
+            <div>
+                <input type="text" name="firstname" id="firstname" placeholder="   First Name" class="txtf" autocomplete="off">
+            </div>
+            <div>
+                <input type="text" name="lastname" id="lastname" placeholder="   Last Name" class="txtf" autocomplete="off">
+            </div>
+            <div>
+                <input type="email" name="email" id="email" placeholder="   Email Id" class="txtf" autocomplete="off">
+            </div>
+            <div>
+                <input type="email" name="confirmemail" id="reemail" placeholder="   Confirm email" class="txtf" autocomplete="off">
+            </div>
+            <div>
+                <input type="text" name="phone" id="phone" placeholder="   Phone Number" class="txtf" autocomplete="off">
+            </div>
+            <div>
+                <input type="text" name="date" id="date"  placeholder="   Date  YYYY-MM-DD" class="txtf" >
+                <input type="text" name="time" id="time" placeholder="   Time (17:30)" class="txtf" >
+            </div>
+            <div>
+                <input type="number" min="1" name="tables" id="tables"  placeholder="   Total tables" class="txtf" >
+                <input type="number" min="1" name="seats" id="seats" placeholder="   Seat per tab"  class="txtf" >
+            </div>
+            <div>
+                <input type="text" name="note" id="note" placeholder="   Special note" class="txtf">
+            </div>
+
+            <div style="margin-bottom: 25px;margin-top: 25px;">
+                <input type="submit" name="submit" id="submit" value="submit" class="buttonclass" >
+                <input type="reset" name="reset" id="reset" value="reset" class="buttonclass" style="margin-right: 0px;">
+            </div>
+
+            <div>
+                <a href="#" id="edit_reservation">Edit or delete reservation?</a>
+            </div>
+        </form>
+    </section-body>
+</section>
+
+<footer>
+    <hr>
+    <address>
+        <span><b>Address:</b></span></br>
+        284 Crittenden way</br>
+        Apt #4,</br>
+        Rochester,</br>
+        NY-14623.</br>
+    </address>
+
+    <location>
+        <a href="https://www.google.com/maps/place/284+Crittenden+Way,+Rochester,+NY+14623/@43.1019619,-77.633201,17z/data=!3m1!4b1!4m2!3m1!1s0x89d14b40f0a273b1:0x844482881c356d8" target="_blank"><button><img src="Images/map.png">view on map</button></a>
+    </location>
+</footer>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="Js/index.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+</html>

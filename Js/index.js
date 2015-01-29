@@ -80,10 +80,6 @@ function loadSection()
         });
 }
 
-function resetForm()
-{
-
-}
 
 //ready function for validation starts
 $(document).ready(function()
@@ -489,7 +485,7 @@ $(document).ready(function()
     {
         setTimeout(function()
         {
-            $("#submit,#reset").blur();
+           // $("#submit,#reset").blur();
         },200);
     });
 

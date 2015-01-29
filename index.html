@@ -30,7 +30,7 @@
                 <label for="switch"></label>
             </div>
         </div>
-        <form action="#" method="post"  onsubmit="return checkValidations()" onreset="resetForm()" novalidate>
+        <form action="#" onreset="resetForm()" novalidate>
 
             <div>
                 <input type="text" name="firstname" id="firstname" placeholder="   First Name" class="txtf" autocomplete="off">
@@ -48,8 +48,8 @@
                 <input type="text" name="phone" id="phone" placeholder="   Phone Number" class="txtf" autocomplete="off">
             </div>
             <div>
-                <input type="text" name="date" id="date"  placeholder="   Date  YYYY-MM-DD" class="txtf" >
-                <input type="text" name="time" id="time" placeholder="   Time (17:30)" class="txtf" >
+                <input type="text" name="date" id="date" onfocus="(this.type='date')" onblur="this.type='text'"  placeholder="   Date  YYYY-MM-DD" class="txtf" >
+                <input type="text" name="time" id="time" placeholder="   Time (17:30)" onfocus="(this.type='time')" onblur="this.type='text'" class="txtf" >
             </div>
             <div>
                 <input type="number" min="1" name="tables" id="tables"  placeholder="   Total tables" class="txtf" >
@@ -60,8 +60,8 @@
             </div>
 
             <div style="margin-bottom: 25px;margin-top: 25px;">
-                <input type="submit" name="submit" id="submit" value="submit" class="buttonclass" >
-                <input type="reset" name="reset" id="reset" value="reset" class="buttonclass" style="margin-right: 0px;">
+                <input type="button" id="submit" value="submit" class="buttonclass" >
+                <input type="reset" id="reset" value="reset" class="buttonclass" style="margin-right: 0px;">
             </div>
 
             <div>
@@ -85,6 +85,8 @@
         <a href="https://www.google.com/maps/place/284+Crittenden+Way,+Rochester,+NY+14623/@43.1019619,-77.633201,17z/data=!3m1!4b1!4m2!3m1!1s0x89d14b40f0a273b1:0x844482881c356d8" target="_blank"><button><img src="Images/map.png">view on map</button></a>
     </location>
 </footer>
+<div id="confirm-dialog" title="Sample Confirmation">
+</div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="Js/index.js"></script>

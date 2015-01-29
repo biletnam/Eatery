@@ -1,18 +1,15 @@
 body
 {
     margin:0px;
+    margin-bottom: 40px;
+    font-family: serif;
 }
 header
 {
     background:#86AFF1 ;
     display: block;
     padding: 10px;
-    font-family: sans-serif;
     margin-bottom: 20px;
-}
-input[type=button],button
-{
-    outline: none;
 }
 header a:nth-child(1)
 {
@@ -25,6 +22,7 @@ header a:nth-child(2)
     font-size:21px;
     text-decoration: none;
     color:#FFFFFF;
+    float: right;
 }
 header img
 {
@@ -87,6 +85,7 @@ form
 form .txtf
 {
     width:50%;
+    min-width: 165px;
     margin: auto;
     border:1px #1A6058;
     border-style:solid;
@@ -108,6 +107,7 @@ form .buttonclass
     background:#357ae8;
     letter-spacing:1px;
     width: 15%;
+    min-width: 100px;
     margin-right:3%;
     cursor: pointer;
 }
@@ -211,13 +211,9 @@ form .buttonclass
 /*style for switch ends*/
 
 @media screen and (max-width: 640px) {
-    form .txtf
-    {
-        width: 100%;
-    }
+
     form .buttonclass
     {
-        width: 35%;
         font-size: 14px;
     }
     #profile table
@@ -226,42 +222,3 @@ form .buttonclass
         font-size: 14px;
     }
 }
-/*  .ui-tabs .ui-tabs-nav ul,.ui-tabs .ui-tabs-nav li
-  {
-      border:0px;
-      height:15px;
-      background:#FFC266;
-      margin-right:20px;
-  }
-  .ui-tabs .ui-tabs-nav ul
-  {
-      width: 100%;
-  }
-  .ui-tabs .ui-tabs-nav li
-  {
-      width: 20%;
-  }
-  .ui-tabs .ui-widget-header
-  {
-      background:none;
-      height:15px;
-      border:none;
-  }
-  .ui-tabs .ui-tabs-nav .ui-state-default a
-  {
-      font-size:16px;
-      font-family:Helvetica, Arial, sans-serif;
-      color: #FFFFFF;
-      height:15px;
-      background:#FFC266;
-      border-radius:4px;
-      outline:none;
-  }
-  .ui-tabs .ui-tabs-nav li a:hover
-  {
-      background:#FFAD33;
-      outline: none;
-  }
-  .ui-tabs .ui-tabs-nav li.ui-tabs-active {
-      outline: none;
-  }*/

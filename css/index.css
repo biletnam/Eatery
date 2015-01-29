@@ -7,7 +7,6 @@ header
     background:#86AFF1 ;
     display: block;
     padding: 10px;
-    font-family: sans-serif;
     margin-bottom: 20px;
 }
 input[type=button],button
@@ -175,6 +174,7 @@ section-body .buttonclass,#dialog .buttonclass
     background:#357ae8;
     letter-spacing:1px;
     width: 20%;
+    min-width: 100px;
     margin-right:3%;
     cursor: pointer;
 }
@@ -349,6 +349,8 @@ footer location button:focus
 {
     border: #086FB6;
 }
+
+
 /*media queries*/
 @media screen and (max-width:800px)
 {
@@ -427,7 +429,7 @@ footer location button:focus
     }
     section-body .buttonclass,#dialog .buttonclass
     {
-        width: 30%;
+
         font-size: 18px;
         margin-left: 20px;
     }

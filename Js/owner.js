@@ -45,7 +45,7 @@ $(document).ready(function () {
                         '<tbody>';
                     $.each(data,function(index,row)
                     {
-                        x+='<tr><td>'+row.cnf+'</td><td>'+row.firstname+' '+row.lastname+'</td><td>'+row.date+' '+row.time+'</td><td>'+row.table+'</td><td><input type="button" value="Details" class="buttonclass" id="'+row.cnf+'"></td></tr>';
+                        x+='<tr><td>'+row.cnf+'</td><td>'+row.firstname+' '+row.lastname+'</td><td>'+row.date+' '+row.time+'</td><td>'+row.table+'</td><td><input type="button" value="Details" class="btn btn-primary btn-sm" id="'+row.cnf+'"></td></tr>';
                     });
                     x+='</tbody></<table>';
                     $('#reservations').html(x);
@@ -70,7 +70,7 @@ $(document).ready(function () {
                       '<tbody>';
                 $.each(data,function(index,row)
                 {
-                    x+='<tr><td>'+row.table+'</td><td>'+row.size+'</td><td>'+row.status+'</td><td>'+row.since+'</td><td>'+row.cnf+'</td></tr>';
+                    x+='<tr><td>'+row.table+'</td><td>'+row.size+'</td><td>'+row.status+'</td><td>'+row.since+'</td><td><a href="#" class="cnf" id="'+row.cnf+'" style="color:blue;">'+row.cnf+'</a></td></tr>';
                 });
                 x+='</tbody></<table>';
                 $('#seating').html(x);
@@ -78,6 +78,25 @@ $(document).ready(function () {
             }
         });
     });
+
+    $(document).on('click','.cnf',function()
+    {
+        //make ajax call to details corresponding to confirmation number
+       /* $.ajax(
+            {
+
+            }
+        );*/
+        $.ui.dialog.prototype._focusTabbable = function(){};
+        $( "#dialog" ).dialog( "open" );
+        $(".ui-dialog-titlebar").removeClass('ui-widget-header');
+        $( ".ui-button").css({'border-radius':'10px'});
+        var x='<table class="table" style="margin-top: 20px"><tbody><tr><td>CNF#:</td><td>12345</td></tr> <tr><td>Name:</td><td>lokesh cherukuri</td></tr>' +
+            '<tr><td>phone:</td><td>4324134679</td></tr> <tr><td>Date:</td><td>2015-01-01</td></tr> <tr><td>Time:</td><td>09:00</td></tr>' +
+            ' <tr><td>Size:</td><td>1T X 2S</td></tr> <tr><td>Table#:</td><td>1</td></tr></tbody></table>';
+        $('#dialog').html(x);
+    });
+
 
     $(document).on('click','#tabs ul li:nth-child(3)',function()
     {
@@ -184,6 +203,12 @@ $(document).ready(function () {
     });
     $(document).on('click','#reservations table input[type="button"]',function()
     {
+        //make ajax call to details corresponding to confirmation number
+        /* $.ajax(
+         {
+
+         }
+         );*/
         $.ui.dialog.prototype._focusTabbable = function(){};
         $( "#dialog" ).dialog( "open" );
         $(".ui-dialog-titlebar").removeClass('ui-widget-header');
@@ -193,24 +218,6 @@ $(document).ready(function () {
             ' <tr><td>Size:</td><td>1T X 2S</td></tr> <tr><td>Table#:</td><td>1</td></tr></tbody></table>';
         $('#dialog').html(x);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /* for edit profile details starts*/

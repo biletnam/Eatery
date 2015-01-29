@@ -11,7 +11,7 @@
                 <label for="switch"></label>
             </div>
         </div>
-        <form action="#" method="post"  onsubmit="return checkValidations()" onreset="resetForm()" novalidate>
+        <form action="#" onreset="resetForm()" novalidate>
 
             <div>
                 <input type="text" name="firstname" id="firstname" placeholder="   First Name" class="txtf" autocomplete="off">
@@ -29,8 +29,8 @@
                 <input type="text" name="phone" id="phone" placeholder="   Phone Number" class="txtf" autocomplete="off">
             </div>
             <div>
-                <input type="text" name="date" id="date"  placeholder="   Date  YYYY-MM-DD" class="txtf" >
-                <input type="text" name="time" id="time" placeholder="   Time (17:30)" class="txtf" >
+                <input type="text" name="date" id="date" onfocus="(this.type='date')" onblur="this.type='text'"  placeholder="   Date  YYYY-MM-DD" class="txtf" >
+                <input type="text" name="time" id="time" placeholder="   Time (17:30)" onfocus="(this.type='time')" onblur="this.type='text'" class="txtf" >
             </div>
             <div>
                 <input type="number" min="1" name="tables" id="tables"  placeholder="   Total tables" class="txtf" >
@@ -41,7 +41,7 @@
             </div>
 
             <div style="margin-bottom: 25px;margin-top: 25px;">
-                <input type="submit" name="submit" id="submit" value="submit" class="buttonclass" >
+                <input type="button" name="submit" id="submit" value="submit" class="buttonclass" >
                 <input type="reset" name="reset" id="reset" value="reset" class="buttonclass" style="margin-right: 0px;">
             </div>
 

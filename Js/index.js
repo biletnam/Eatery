@@ -80,86 +80,12 @@ function loadSection()
         });
 }
 
-function checkValidations()
-{
-    var total=0;
-    if(firstnamevalidity==true)
-        total++;
-    else
-    {
-        firstnamevalidity=false;
-        $('#firstname').addClass('validation-image');
-    }
-    if(lastnamevalidity==true)
-        total++;
-    else
-    {
-        lastnamevalidity=false;
-        $('#lastname').addClass('validation-image');
-    }
-    if(emailvalidity==true)
-        total++;
-    else
-    {
-        emailvalidity=false;
-        $('#email').addClass('validation-image');
-    }
-    if(reemailvalidity==true)
-        total++;
-    else
-    {
-        reemailvalidity=false;
-        $('#reemail').addClass('validation-image');
-    }
-    if(phonevalidity==true)
-        total++;
-    else
-    {
-        phonevalidity=false;
-        $('#phone').addClass('validation-image');
-    }
-    if(datevalidity==true)
-        total++;
-    else
-    {
-        datevalidity=false;
-        $('#date').addClass('validation-image');
-    }
-    if(timevalidity==true)
-        total++;
-    else
-    {
-        timevalidity=false;
-        $('#time').addClass('validation-image');
-    }
-    if(tablesvalidity==true)
-        total++;
-    else
-    {
-        tablesvalidity=false;
-        $('#tables').addClass('validation-image');
-    }
-    if(seatsvalidity==true)
-        total++;
-    else
-    {
-        seatsvalidity=false;
-        $('#seats').addClass('validation-image');
-    }
-
-    if(total==9)
-        return true;
-    else
-        return false;
-}
 function resetForm()
 {
-    $('input').removeClass('validation-image');
-    $('.img').remove();
-    firstnamevalidity=lastnamevalidity=emailvalidity=reemailvalidity=phonevalidity=datevalidity=timevalidity=tablesvalidity=seatsvalidity=undefined;
+
 }
 
-
+//ready function for validation starts
 $(document).ready(function()
 {
     var date=new Date();
@@ -177,27 +103,7 @@ $(document).ready(function()
                 });
         });
     }
-});
 
-//for click effect
-$(document).ready(function()
-{
-    $("#submit,#reset,#cancel").click(
-        function()
-        {
-            $(this).addClass("decorate-buttons-after-click");
-
-            setTimeout(function(){$("#submit,#reset,#cancel").removeClass("decorate-buttons-after-click");},200);
-            $("#submit,#reset,#cancel").blur();
-        });
-});
-//ready function ends
-//end of button click effect.
-
-
-//ready function for validation starts
-$(document).ready(function()
-{
     function loadValidationFalseImages(which)
     {
         $(which).next(".img").remove();
@@ -225,16 +131,85 @@ $(document).ready(function()
         }
     }
 
-    //validation for firstname starts
+    function checkValidations()
+    {
+        var total=0;
+        if(firstnamevalidity==true)
+            total++;
+        else
+        {
+            firstnamevalidity=false;
+            $('#firstname').addClass('validation-image');
+        }
+        if(lastnamevalidity==true)
+            total++;
+        else
+        {
+            lastnamevalidity=false;
+            $('#lastname').addClass('validation-image');
+        }
+        if(emailvalidity==true)
+            total++;
+        else
+        {
+            emailvalidity=false;
+            $('#email').addClass('validation-image');
+        }
+        if(reemailvalidity==true)
+            total++;
+        else
+        {
+            reemailvalidity=false;
+            $('#reemail').addClass('validation-image');
+        }
+        if(phonevalidity==true)
+            total++;
+        else
+        {
+            phonevalidity=false;
+            $('#phone').addClass('validation-image');
+        }
+        if(datevalidity==true)
+            total++;
+        else
+        {
+            datevalidity=false;
+            $('#date').addClass('validation-image');
+        }
+        if(timevalidity==true)
+            total++;
+        else
+        {
+            timevalidity=false;
+            $('#time').addClass('validation-image');
+        }
+        if(tablesvalidity==true)
+            total++;
+        else
+        {
+            tablesvalidity=false;
+            $('#tables').addClass('validation-image');
+        }
+        if(seatsvalidity==true)
+            total++;
+        else
+        {
+            seatsvalidity=false;
+            $('#seats').addClass('validation-image');
+        }
+        if(total==9)
+            return true;
+        else
+            return false;
+    }
 
+    //validation for firstName starts
     $(document).on('focus',"#firstname",function()	//first name text box focus
     {
         tooltipRemove();
         if(firstnamevalidity==false)	//first name validation status false
             $(this).before($('<div class="tooltip" description="Min 2 Characters. No spaces or special chars"></div>').fadeIn(2000));	//displaying tool tip
-
     });
-
     $(document).on('blur',"#firstname",function()
     {
         tooltipRemove();
@@ -248,14 +223,13 @@ $(document).ready(function()
             firstnamevalidity=true;
             loadValidationTrueImages(this);
             if($('#switch').prop('checked'))
-                localStorage.setItem("firstname",$.trim($(this).val()))
-
+                localStorage.setItem("firstname",$.trim($(this).val()));
         }
     });
-    //validation for firstname ends
+    //validation for firstName ends
 
 
-    //validation for lastname starts
+    //validation for lastName starts
     $(document).on('focus',"#lastname",function()	//last name text box focus
     {
         tooltipRemove();
@@ -263,7 +237,6 @@ $(document).ready(function()
             $(this).before($('<div class="tooltip" description="Min 2 Characters. No spaces or special chars"></div>').fadeIn(2000));	//displaying tool tip
 
     });
-
     $(document).on('blur',"#lastname",function()
     {
         tooltipRemove();
@@ -280,7 +253,7 @@ $(document).ready(function()
                 localStorage.setItem("lastname",$.trim($(this).val()))
         }
     });
-    //validation for lastname ends
+    //validation for lastName ends
 
 
     //validation for email starts
@@ -288,9 +261,8 @@ $(document).ready(function()
     {
         tooltipRemove();
         if(emailvalidity==false)
-            $("#email").before($('<div class="tooltip"  description="Valid email with no spaces."></div>').fadeIn(2000));//displaying tool tip
+            $("#email").before($('<div class="tooltip"  description="Working email address to send confirmation details."></div>').fadeIn(2000));//displaying tool tip
     });
-
     $(document).on('blur',"#email",function()
     {
         tooltipRemove();
@@ -320,7 +292,6 @@ $(document).ready(function()
             $(this).before($('<div class="tooltip"  description="Email & Confirm email should match."></div>').fadeIn(2000));	//displaying tool tip
 
     });
-
     $(document).on('blur',"#reemail",function()
     {
         tooltipRemove();
@@ -337,8 +308,10 @@ $(document).ready(function()
                 localStorage.setItem("email",$.trim($(this).val()))
         }
     });
-    //validation for reemail ends
+    //validation for reEmail ends
 
+
+    //validation for phone starts
     $(document).on('focus','#phone',function()
     {
         tooltipRemove();
@@ -362,13 +335,15 @@ $(document).ready(function()
             loadValidationFalseImages(this);
         }
     });
+    //validation for phone ends
 
 
+    //validation for tables count starts
     $(document).on('focus','#tables',function()
     {
         tooltipRemove();
         if(tablesvalidity==false)	//last name validation status false
-            $(this).before($('<div class="tooltip" description="Select atleast 1 table and 1 seat"></div>').fadeIn(2000));	//displaying tool tip
+            $(this).before($('<div class="tooltip" description="Reservation allowed for at least 1 table and 1 seat"></div>').fadeIn(2000));	//displaying tool tip
     });
     $(document).on('blur','#tables',function()
     {
@@ -384,13 +359,15 @@ $(document).ready(function()
             $(this).removeClass("validation-image");
         }
     });
+    //validation for tables count ends
 
 
+    //validation for seats count starts
     $(document).on('focus','#seats',function()
     {
         tooltipRemove();
         if(seatsvalidity==false)	//last name validation status false
-            $('#tables').before($('<div class="tooltip" description="Select atleast 1 table and 1 seat"></div>').fadeIn(2000));	//displaying tool tip
+            $('#tables').before($('<div class="tooltip" description="Reservation allowed for at least 1 table and 1 seat"></div>').fadeIn(2000));	//displaying tool tip
     });
     $(document).on('blur','#seats',function()
     {
@@ -406,8 +383,10 @@ $(document).ready(function()
             loadValidationTrueImages(this);
         }
     });
+    //validation for seats count ends
 
 
+    //validation for date starts
     $(document).on('focus',"#date",function()	//last name text box focus
     {
         tooltipRemove();
@@ -469,17 +448,13 @@ $(document).ready(function()
     //validation for date ends
 
 
+    //validation for time starts
     $(document).on('focus','#time',function()
     {
         tooltipRemove();
-<<<<<<< HEAD
         $(this).attr("type","time");
         if(timevalidity==false)
             $('#date').before($('<div class="tooltip" description="Enter event start time. 24 hr format Ex:17:30"></div>').fadeIn(2000));	//displaying tool tip
-=======
-        if(timevalidity==false)	//last name validation status false
-            $('#date').before($('<div class="tooltip" description="Enter event start time. 12 hr format"></div>').fadeIn(2000));	//displaying tool tip
->>>>>>> parent of f4feecf... after ui submission
     });
     $(document).on('blur','#time',function()
     {
@@ -496,16 +471,17 @@ $(document).ready(function()
             loadValidationTrueImages(this);
         }
     });
+    //validation for time ends
 
-    $(document).on('click','#edit_reservation',function()
+
+    $(document).on('click','#edit_reservation',function()       //open dialog for confirmation num
     {
-        $('#dialog').slideDown('slow');
+        $('#dialog').slideDown('500');
         $('#dialog').focus();
     });
-    $(document).mouseup(function(e)
+    $(document).mouseup(function(e)         // closing dialog for confirmation num on body click
     {
         if (!$('#dialog').is(e.target) && $('#dialog').has(e.target).length === 0)
-<<<<<<< HEAD
             $('#dialog').slideUp('500');
     });
 
@@ -584,9 +560,6 @@ $(document).ready(function()
         $('input').removeClass('validation-image');
         $('.img').remove();
         firstnamevalidity=lastnamevalidity=emailvalidity=reemailvalidity=phonevalidity=datevalidity=timevalidity=tablesvalidity=seatsvalidity=undefined;
-=======
-            $('#dialog').slideUp('slow');
->>>>>>> parent of f4feecf... after ui submission
     });
 });
 //ready function for validation ends

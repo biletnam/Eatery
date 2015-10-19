@@ -3,26 +3,38 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        $.ajax(
-                {
-                    url:'proxy.php',
-                    cache:'false',
-                    data:{path:'name=lok'},
-                    dataType:'json',
-                    success:function(data)
-                    {
-                        $.each(data,function(index,row)
-                        {
-                            console.log(row);
-                            console.log("ook");
-                        });
-                    }
-                });
-    </script>
+    <style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #full {
+            background-color: red;
+            height: 100%;
+            width: 300px;
+        }
+        #header{
+            background-color: blue;
+            float: left;
+            width: 100%;
+            height: 100px;
+        }
+        #someid{
+            background-color: green;
+            height: 100%;
+        }
+
+    </style>
+
 </head>
 <body>
+<div id="full">
+    <div id="header">This is the header content.</div>
+    <div id="someid">This is other stuff.</div>
+</div>
 
 </body>
 </html>

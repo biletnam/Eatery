@@ -1,3 +1,1 @@
-# Eatery
-Online restaurant booking app with
-HTML, CSS, BOOTSTRAP, JAVASCRIPT, JQUERY, AJAX, JAVA, JERSEY+JACKSON FRAMEWORK
+

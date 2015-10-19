@@ -3,7 +3,7 @@
  */
 
 
-$(document).ready(function () {
+/*$(document).ready(function () {
     var tabName=$('#tabs ul li a span:nth-child(2)');
     $(function() {
         $( "#tabs" ).tabs();
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     /*tab clicks start*/
 
-    $(document).on('click','#tabs ul li:nth-child(1)',function()
+ /*   $(document).on('click','#tabs ul li:nth-child(1)',function()
     {
         $('#reservations').html('<div style="text-align: center;"><img src="Images/loading.gif"></div>');
         $.ajax(
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
             }
         );*/
-        $.ui.dialog.prototype._focusTabbable = function(){};
+     /*   $.ui.dialog.prototype._focusTabbable = function(){};
         $( "#dialog" ).dialog( "open" );
         $(".ui-dialog-titlebar").removeClass('ui-widget-header');
         $( ".ui-button").css({'border-radius':'10px'});
@@ -186,7 +186,7 @@ $(document).ready(function () {
 
     /*tab clicks end*/
 
-    $(function() {
+   /* $(function() {
         $( "#dialog" ).dialog({
             autoOpen: false, modal:true,height:400,width:310,
             show: {
@@ -209,7 +209,7 @@ $(document).ready(function () {
 
          }
          );*/
-        $.ui.dialog.prototype._focusTabbable = function(){};
+   /*     $.ui.dialog.prototype._focusTabbable = function(){};
         $( "#dialog" ).dialog( "open" );
         $(".ui-dialog-titlebar").removeClass('ui-widget-header');
         $( ".ui-button").css({'border-radius':'10px'});
@@ -221,7 +221,7 @@ $(document).ready(function () {
 
 
     /* for edit profile details starts*/
-    var address=[];
+  /*  var address=[];
     $(document).on('click','#edit_profile',function()
     {
         var i=0;
@@ -255,7 +255,7 @@ $(document).ready(function () {
     /* for edit profile details ends*/
 
     /* for edit login details starts*/
-    var login=[];
+  /*  var login=[];
     $(document).on('click','#profile #edit_login',function()
     {
         var i = 0;
@@ -310,4 +310,4 @@ $(document).ready(function () {
      });
     /* for edit login details ends*/
 
-});
+//});

@@ -1,95 +1,84 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html ng-app="eateryApp">
+<head>
+    <base href="/Eatery/index.html">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="Images/favicoon.png" />
-    <title>Eatery Home</title>
-    <link rel="stylesheet" href="css/index.css">
-</head>
-<body>
-<div id="dialog">
-    <div> <input type="text" class="txtf" placeholder=" Confirmation Number" autofocus="true"></div>
-    <div> <input type="button" value="Edit" class="buttonclass"><input type="button" value="Delete" class="buttonclass"></div>
-</div>
-<header>
-    <a href="index.html"><img src="Images/restaurant.png">&nbsp;Eatery</a>
-    <a href="#" onclick="loadSection()">Owner? login</a>
-</header>
+    <title>Eatery</title>
+    <link rel="icon" type="image/png" href="http://paulferrett.com/fontawesome-favicon/generate.php?icon=rocket">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<section id="customer_section">
-    <section-head>
-        <img src="Images/booking-32.png">
-        <span>Make a reservation</span>
-    </section-head>
-    <section-body>
-        <div id="preference">
-            <div id="setting">
-                <span>save preferences</span>
-                <input id="switch"  type="checkbox">
-                <label for="switch"></label>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.3/css/dataTables.responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="css/base.css">
+</head>
+</head>
+
+<body ng-controller="MainController as mainCtrl">
+
+<header>
+    <div class="header">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Eatery">Eatery</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login">Login</a></li>
+                    <li><a href="owner">Owner</a></li>
+                </ul>
             </div>
         </div>
-        <form action="#" novalidate>
+    </nav>
+    </div>
+</header>
 
-            <div>
-                <input type="text" name="firstname" id="firstname" placeholder="   First Name" class="txtf" autocomplete="off">
-            </div>
-            <div>
-                <input type="text" name="lastname" id="lastname" placeholder="   Last Name" class="txtf" autocomplete="off">
-            </div>
-            <div>
-                <input type="email" name="email" id="email" placeholder="   Email Id" class="txtf" autocomplete="off">
-            </div>
-            <div>
-                <input type="email" name="confirmemail" id="reemail" placeholder="   Confirm email" class="txtf" autocomplete="off">
-            </div>
-            <div>
-                <input type="text" name="phone" id="phone" placeholder="   Phone Number" class="txtf" autocomplete="off">
-            </div>
-            <div>
-                <input type="text" name="date" id="date" onfocus="(this.type='date')" onblur="this.type='text'"  placeholder="   Date  YYYY-MM-DD" class="txtf" >
-                <input type="text" name="time" id="time" placeholder="   Time (17:30)" onfocus="(this.type='time')" onblur="this.type='text'" class="txtf" >
-            </div>
-            <div>
-                <input type="number" min="1" name="tables" id="tables"  placeholder="   Total tables" class="txtf" >
-                <input type="number" min="1" name="seats" id="seats" placeholder="   Seat per tab"  class="txtf" >
-            </div>
-            <div>
-                <input type="text" name="note" id="note" placeholder="   Special note" class="txtf">
-            </div>
+<section data-ng-view>
 
-            <div style="margin-bottom: 25px;margin-top: 25px;">
-                <input type="button" id="submit" value="submit" class="buttonclass" >
-                <input type="reset" id="reset" value="reset" class="buttonclass" style="margin-right: 0px;">
-            </div>
-
-            <div>
-                <a href="#" id="edit_reservation">Edit or delete reservation?</a>
-            </div>
-        </form>
-    </section-body>
 </section>
 
-<footer>
-    <hr>
-    <address>
-        <span><b>Address:</b></span></br>
-        284 Crittenden way</br>
-        Apt #4,</br>
-        Rochester,</br>
-        NY-14623.</br>
-    </address>
-
-    <location>
-        <a href="https://www.google.com/maps/place/284+Crittenden+Way,+Rochester,+NY+14623/@43.1019619,-77.633201,17z/data=!3m1!4b1!4m2!3m1!1s0x89d14b40f0a273b1:0x844482881c356d8" target="_blank"><button><img src="Images/map.png">view on map</button></a>
-    </location>
-</footer>
-<div id="confirm-dialog" title="Sample Confirmation">
+<div id="data-loader" data-ng-show="mainCtrl.isAppLoading">
+    <div class="loader">
+        <div class="orange"></div>
+        <div class="blue"></div>
+        <div class="violet"></div>
+        <div class="green"></div>
+        <div class="pink"></div>
+    </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+<script src='http://maps.google.com/maps/api/js?sensor=false'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+<script src="https://code.angularjs.org/1.4.7/angular-messages.min.js"></script>
+<script src="Js/app.js"></script>
+<script src="Js/Controllers/MainController.js"></script>
+<script src="Js/Controllers/ReservationController.js"></script>
+<script src="Js/Controllers/OwnerController.js"></script>
+<script src="Js/directives.js"></script>
+
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="Js/index.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 </html>

@@ -1,0 +1,80 @@
+<div id="owner" class="container" ng-controller="OperationsController as oprCtrl" >
+
+    <uib-tabset justified="true">
+        <uib-tab>
+            <uib-tab-heading>
+                <span class="glyphicon glyphicon-calendar"></span><span> Reservations</span>
+            </uib-tab-heading>
+            <div class="text-center">
+                <uib-pagination
+                        ng-model="oprCtrl.currentPage"
+                        total-items="oprCtrl.reservations.length"
+                        max-size="oprCtrl.maxSize"
+                        boundary-links="true">
+                </uib-pagination>
+            </div>
+            <table class="table table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone number</th>
+                    <th>Date & Time</th>
+                    <th>Seats</th>
+                    <th>Status</th>
+                    <th>More</th>
+                </tr>
+                <tr data-ng-repeat="reservation in oprCtrl.reservations | limitTo:oprCtrl.numPerPage:(oprCtrl.currentPage - 1) * oprCtrl.numPerPage">
+                    <td>{{reservation.name}}</td>
+                    <td>{{reservation.phone}}</td>
+                    <td>{{reservation.time}}</td>
+                    <td>{{reservation.seats}}</td>
+                    <td>{{reservation.status}}</td>
+                    <td> <button class="btn btn-info btn-xs"> <i class="fa fa-external-link"> </i>  Details </button> </td>
+                </tr>
+            </table>
+        </uib-tab>
+        <uib-tab>
+            <uib-tab-heading>
+                <span class="glyphicon glyphicon-th"></span><span> Seating</span>
+            </uib-tab-heading>
+            <div class="row">
+                <div class="col-lg-col-xs-10 col-xs-offset-1">
+                    <ul>
+                        <li class="seat text-center pointer" data-ng-repeat="seat in oprCtrl.seats">
+                            <div>{{seat}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3em;">
+                <div  class="col-sm-2 col-sm-offset-1">
+                    <div class="seating-pic text-center">
+                        <div class="seat-pic"></div>
+                        <div class="table-pic text-white">
+                            <h4>table #1</h4>
+                            <h5>Occupied by</h5>
+                            <span> <a href="#" class="text-white"> 12345 </a> </span>
+                        </div>
+                        <div class="seat-pic"></div>
+                    </div>
+                </div>
+                <div  class="col-sm-9">
+                    <div class="seat-reservations">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Name</th>
+                                <th>Date & Time</th>
+                                <th>More</th>
+                            </tr>
+                            <tr data-ng-repeat="reservation in oprCtrl.reservationsBySeat">
+                                <td>{{reservation.name}}</td>
+                                <td>{{reservation.time}}</td>
+                                <td> <button class="btn btn-info btn-xs"> <i class="fa fa-external-link"> </i>  Details </button> </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+
+</div>

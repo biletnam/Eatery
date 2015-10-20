@@ -4,7 +4,7 @@
 
 (function(){
 
-    var eateryDirectives=angular.module('eateryDirectives',['eateryControllers']);
+    var eateryDirectives=angular.module('eateryApp');
 
     eateryDirectives
         .directive('myMap',function(){

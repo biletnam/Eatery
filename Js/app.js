@@ -4,26 +4,25 @@
 
 (function(){
 
-    var eateryApp=angular.module('eateryApp',['ngRoute','ngMessages','eateryControllers','eateryDirectives']);
+    var eateryApp=angular.module('eateryApp',['ngRoute','ngMessages','ui.bootstrap']);
 
     eateryApp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 
         $routeProvider
             .when('/',{
-                templateUrl:'partials/landing.html',
-                controller:'MainController'
+                templateUrl:'partials/landing.html'
             })
             .when('/reservation',{
-                templateUrl:'partials/reservation.html',
-                controller:'ReservationController'
+                templateUrl:'partials/reservation.html'
             })
             .when('/login',{
-                templateUrl:'partials/login.html',
-                controller:'LoginController'
+                templateUrl:'partials/login.html'
             })
             .when('/owner',{
-                templateUrl:'partials/owner.html',
-                controller:'OwnerController'
+                templateUrl:'partials/owner.html'
+            })
+            .when('/operations',{
+                templateUrl:'partials/operations.html'
             })
             .otherwise({
                 redirectTo:'/'

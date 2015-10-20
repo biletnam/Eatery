@@ -4,7 +4,7 @@
 
 (function(){
 
-    var eateryControllers=angular.module('eateryControllers');
+    var eateryControllers=angular.module('eateryApp');
 
     eateryControllers.controller('ReservationController',function(){
         var resvnCtrl=this;

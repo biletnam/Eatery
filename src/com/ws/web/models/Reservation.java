@@ -6,8 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDateTime;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import customClasses.CustomJsonDateDeserializer;
+
+import java.util.Date;
 
 @Entity
 @Table(name="reservations")
@@ -21,25 +24,23 @@ public class Reservation implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String cnf;
 	private String name;
 	private String email;
 	private String phone;
 	
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-	private LocalDateTime t;
+	@JsonDeserialize(using=CustomJsonDateDeserializer.class)
+	private Date time;
 	private int seats;
 	private String note;
 	
 	public Reservation() { }
 	
-	public Reservation(String cnf, String name, String email, String phone,
-			LocalDateTime time, int seats, String note) {
-		this.cnf = cnf;
+	public Reservation(String name, String email, String phone,
+			Date time, int seats, String note) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
-		this.t = time;
+		this.time = time;
 		this.seats = seats;
 		this.note = note;
 	}
@@ -51,14 +52,6 @@ public class Reservation implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getCnf() {
-		return cnf;
-	}
-
-	public void setCnf(String cnf) {
-		this.cnf = cnf;
 	}
 
 	public String getName() {
@@ -85,12 +78,13 @@ public class Reservation implements Serializable{
 		this.phone = phone;
 	}
 
-	public LocalDateTime getTime() {
-		return t;
+	
+	public Date getTime() {
+		return time;
 	}
 
-	public void setTime(LocalDateTime time) {
-		this.t = time;
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	public int getSeats() {

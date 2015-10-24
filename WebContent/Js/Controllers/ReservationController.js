@@ -6,7 +6,7 @@
 
     var eateryControllers=angular.module('eateryApp');
 
-    eateryControllers.controller('ReservationController',function(){
+    eateryControllers.controller('ReservationController',['$http',function($http){
         var resvnCtrl=this;
         resvnCtrl.user={};
 
@@ -14,7 +14,20 @@
             if(isValid==true){
                 //send  resvnCtrl.user object to database with $http
                 // route to different page. Ex: confirmation
-                console.log(resvnCtrl.user)
+            	$http({
+            		  method: 'POST',
+            		  url: '/Eatery/save',
+            		  contentType:'application/json',
+            		  dataType:'json',
+            		  data:resvnCtrl.user
+        		}).then(function successCallback(response) {
+        		    // this callback will be called asynchronously
+        		    // when the response is available
+        			console.log(response);
+        		  }, function errorCallback(response) {
+        		    // called asynchronously if an error occurs
+        		    // or server returns response with an error status.
+        		  });
             }
             else{
                 //show errors
@@ -26,6 +39,6 @@
             resvnCtrl.user={};
             resvnCtrl.form.$setPristine();
         }
-    });
+    }]);
 
 })();

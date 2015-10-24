@@ -42,14 +42,13 @@
                     <label class="control-label">Date & Time</label>
                     <div class='input-group date' id='datetimepicker'>
                         <input type="text" name="time" id="time" data-ng-model="resvnCtrl.user.time"
-                               placeholder="Enter Desired Time" class="form-control" required data-ng-minlength="10">
-                        <span class="input-group-addon pointer"  data-date-picker>
+                               placeholder="Enter Desired Time" class="form-control">
+                        <span class="input-group-addon pointer" data-date-picker>
                             <i class="fa fa-calendar"></i>
                         </span>
                     </div>
                     <div data-ng-messages="resvnCtrl.form.time.$error" data-ng-if="resvnCtrl.form.time.$dirty || resvnCtrl.form.$submitted">
                         <p class="help-block" data-ng-message="required">Date & Time required</p>
-                        <p class="help-block" data-ng-message="minlength">Select valid time from calendar</p>
                     </div>
                 </div>
 

@@ -11,7 +11,7 @@ public class TestModels {
 	public static void main(String[] args) {
 		
 		System.out.println("run");
-		Reservation reservation=new Reservation("cnf123","lokesh cherukuri","lc4377@rit.edu","4324134679",null,2,"birthday party");
+		Reservation reservation=new Reservation("lokesh cherukuri","lc4377@rit.edu","4324134679",null,2,"birthday party");
 		
 		Configuration configuration = new Configuration().configure();
 	    StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

@@ -50,10 +50,8 @@
                link:function(scope,ele,attrs){
                    $('#datetimepicker').datetimepicker();
                    $(ele).bind('click',function(){
-                       scope.resvnCtrl.form.time.$setValidity("required",true);
-                       scope.resvnCtrl.form.time.$setDirty();
+                	   scope.resvnCtrl.user.time=$('#time').val();
                    });
-
                }
            };
             return directive;

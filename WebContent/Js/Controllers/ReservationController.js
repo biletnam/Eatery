@@ -6,14 +6,31 @@
 
     var eateryControllers=angular.module('eateryApp');
 
-    eateryControllers.controller('ReservationController',['$http',function($http){
+    eateryControllers.controller('ReservationController',['$scope','$http','$uibModal','reservationConfService','$location',function($scope,$http,$uibModal,reservationConfService,$location){
         var resvnCtrl=this;
         resvnCtrl.user={};
+        resvnCtrl.confirmation={};
+        
+        resvnCtrl.openModal = function () {
+        	var confirmationModal = $uibModal.open({
+                animation: true,
+                templateUrl: 'myModalContent.html',
+                size: "md",
+                controller:'ReservationConfController as reservationConfCtrl',
+                resolve: {
+                	confirmation: function () {
+                      return resvnCtrl.confirmation;
+                    }
+                  }
+            });
+        }
 
         resvnCtrl.submitForm=function(isValid){
             if(isValid==true){
                 //send  resvnCtrl.user object to database with $http
                 // route to different page. Ex: confirmation
+            	
+            	$scope.mainCtrl.isAppLoading=true;
             	$http({
             		  method: 'POST',
             		  url: '/Eatery/save',
@@ -21,13 +38,14 @@
             		  dataType:'json',
             		  data:resvnCtrl.user
         		}).then(function successCallback(response) {
-        		    // this callback will be called asynchronously
-        		    // when the response is available
-        			console.log(response);
+        				resvnCtrl.confirmation=response.data;
+        				reservationConfService.setConfirmation(response.data);
+        				//$scope.mainCtrl.isAppLoading=true;
+        				//resvnCtrl.openModal();
+        				$location.path("/reservation/confirmation");
         		  }, function errorCallback(response) {
-        		    // called asynchronously if an error occurs
-        		    // or server returns response with an error status.
-        		  });
+        		    
+        		 });
             }
             else{
                 //show errors

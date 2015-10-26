@@ -4,7 +4,7 @@
 
 (function(){
 
-    var eateryApp=angular.module('eateryApp',['ngRoute','ngMessages','ui.bootstrap']);
+    var eateryApp=angular.module('eateryApp',['ngRoute','ngMessages','ui.bootstrap','ngAnimate']);
 
     eateryApp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 
@@ -23,6 +23,9 @@
             })
             .when('/operations',{
                 templateUrl:'partials/operations.html'
+            })
+            .when('/reservation/confirmation',{
+            	templateUrl:'partials/confirmation.html'
             })
             .otherwise({
                 redirectTo:'/'

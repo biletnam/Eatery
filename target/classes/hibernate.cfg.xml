@@ -51,7 +51,8 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
 
-        <mapping class="com.ws.web.models.Reservation" />
+        <mapping class="com.eatery.models.Reservation" />
+        <mapping class="com.eatery.models.Seating" />
         
 
     </session-factory>

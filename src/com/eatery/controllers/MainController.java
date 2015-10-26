@@ -1,4 +1,4 @@
-package com.ws.web.controllers;
+package com.eatery.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

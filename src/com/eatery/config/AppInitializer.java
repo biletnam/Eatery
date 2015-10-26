@@ -1,4 +1,4 @@
-package com.ws.config;
+package com.eatery.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

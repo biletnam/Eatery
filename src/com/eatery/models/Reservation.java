@@ -1,19 +1,26 @@
-package com.ws.web.models;
+package com.eatery.models;
 
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.eatery.customClasses.CustomJsonDateDeserializer;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import customClasses.CustomJsonDateDeserializer;
-
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
 @Table(name="reservations")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Reservation implements Serializable{
 
 	/**
@@ -32,17 +39,22 @@ public class Reservation implements Serializable{
 	private Date time;
 	private int seats;
 	private String note;
+	private boolean assigned;
+	
+	@OneToMany(mappedBy="reservation")
+	private Collection<Seating> tables=new ArrayList<Seating>();
 	
 	public Reservation() { }
 	
 	public Reservation(String name, String email, String phone,
-			Date time, int seats, String note) {
+			Date time, int seats, String note,boolean assigned) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.time = time;
 		this.seats = seats;
 		this.note = note;
+		this.assigned=assigned;
 	}
 
 
@@ -102,5 +114,22 @@ public class Reservation implements Serializable{
 	public void setNote(String note) {
 		this.note = note;
 	}
+
+	public boolean isAssigned() {
+		return assigned;
+	}
+
+	public void setAssigned(boolean assigned) {
+		this.assigned = assigned;
+	}
+
+	public Collection<Seating> getTables() {
+		return tables;
+	}
+
+	public void setTables(Collection<Seating> tables) {
+		this.tables = tables;
+	}
+	
 	
 }

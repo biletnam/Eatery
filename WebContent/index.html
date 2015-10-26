@@ -17,10 +17,12 @@
     <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.3/css/dataTables.responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Proxima+Nova|sans-serif">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto|serif">
 </head>
 </head>
 
-<body ng-controller="MainController as mainCtrl">
+<body data-ng-controller="MainController as mainCtrl">
 
 <header>
     <div class="header">
@@ -54,6 +56,12 @@
 
 </section>
 
+<footer>
+	<div class="footer">
+		&copy lokesh cherukuri
+	</div>
+</footer>
+
 <div id="data-loader" data-ng-show="mainCtrl.isAppLoading">
     <div class="loader">
         <div class="orange"></div>
@@ -71,13 +79,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
 <script src="https://code.angularjs.org/1.4.7/angular-messages.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
 <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.2.js"></script>
 <script src="Js/app.js"></script>
 <script src="Js/Controllers/MainController.js"></script>
 <script src="Js/Controllers/ReservationController.js"></script>
+<script src="Js/Controllers/ReservationConfController.js"></script>
 <script src="Js/Controllers/OwnerController.js"></script>
 <script src="Js/Controllers/OperationsController.js"></script>
 <script src="Js/directives.js"></script>
+<script src="Js/services.js"></script>
+
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package customClasses;
+package com.eatery.customClasses;
 
 import java.io.IOException;
 import java.text.ParseException;

@@ -17,10 +17,12 @@
     <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.3/css/dataTables.responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Proxima+Nova|sans-serif">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto|serif">
 </head>
 </head>
 
-<body ng-controller="MainController as mainCtrl">
+<body data-ng-controller="MainController as mainCtrl">
 
 <header>
     <div class="header">
@@ -54,6 +56,13 @@
 
 </section>
 
+<footer>
+	<div class="footer">
+		
+	</div>
+	<h1>This is Footer</h1>
+</footer>
+
 <div id="data-loader" data-ng-show="mainCtrl.isAppLoading">
     <div class="loader">
         <div class="orange"></div>
@@ -78,6 +87,7 @@
 <script src="Js/Controllers/OwnerController.js"></script>
 <script src="Js/Controllers/OperationsController.js"></script>
 <script src="Js/directives.js"></script>
+
 
 </body>
 </html>

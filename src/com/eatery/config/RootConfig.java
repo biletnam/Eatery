@@ -1,4 +1,4 @@
-package com.ws.config;
+package com.eatery.config;
 
 import java.util.Properties;
 import javax.sql.DataSource;
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages={"com.ws.repos"})
+@ComponentScan(basePackages={"com.eatery.services","com.eatery.repos"})
 public class RootConfig {
 
 	@Bean
@@ -31,7 +31,7 @@ public class RootConfig {
 		Properties properties=new Properties();
 		properties.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
 		bean.setHibernateProperties(properties);
-		bean.setPackagesToScan("com.ws.web.models");
+		bean.setPackagesToScan("com.eatery.models");
 		return bean;
 	}
 	

@@ -1,16 +1,12 @@
-package com.ws.repos;
-
-import javax.transaction.Transactional;
+package com.eatery.repos;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.ws.web.models.Reservation;
+import com.eatery.models.Reservation;
 
 @Repository
-@Transactional
 public class ReservationRepoImpl implements ReservationRepo {
 
 	private SessionFactory sessionFactory;
@@ -25,9 +21,16 @@ public class ReservationRepoImpl implements ReservationRepo {
 	}
 	
 	@Override
-	public int save(Reservation reservation){
+	public Reservation save(Reservation reservation){
 		Session session=getCurrentSession();
-		return (int) session.save(reservation);
+		int id=(int) session.save(reservation);
+		return getReservation(id);
+	}	
+
+	@Override
+	public Reservation getReservation(int id) {
+		Session session=getCurrentSession();
+		return (Reservation) session.get(Reservation.class, id);
 	}
 	
 	@Override

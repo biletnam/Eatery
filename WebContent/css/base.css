@@ -14,7 +14,7 @@ h1{
     border: 0;
     text-align: center;
     width: 100%;
-    float: left;
+    float: none;
     margin-bottom: 0;
 
 }
@@ -32,6 +32,7 @@ section{
 	background: #DFDFDF;
 	margin: 0px;
 	padding: 30px;
+	margin-top: 3em;
 }
 .pointer{
     cursor: pointer;
@@ -55,29 +56,26 @@ section{
     border-bottom: 1px dotted;
 }
 .container{
-    padding-top: 5em;
-}
-#owner.container{
-    height: 90%;
+    height: 100%;
 }
 .tab-content{
     height: 100%;
     min-height: 100%;
-    margin-bottom: 30px;
-    margin-top: -30px;
-    border-right:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-    border-left: 1px solid #ddd;
+    padding: 30px 30px 0 30px;
 }
 .tab-pane{
     height: 100%;
-    min-height: 100%;
-    margin: 30px;
-    padding-top: 45px;
+    min-height: 100%;  
 }
 .site-color{
     color: #1C4365;
 }
+ul.nav-pills{
+	width: 60%;
+	margin: auto;
+}
+
+
 
 /* spinner*/
 
@@ -286,3 +284,10 @@ section{
 .text-white{
     color: #ffffff;
 }
+.page-heading{
+	margin: 20px 0 20px 0;
+}
+
+
+
+

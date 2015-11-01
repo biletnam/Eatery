@@ -33,7 +33,7 @@
             	$scope.mainCtrl.isAppLoading=true;
             	$http({
             		  method: 'POST',
-            		  url: '/Eatery/save',
+            		  url: '/Eatery/rest/reservations/save',
             		  contentType:'application/json',
             		  dataType:'json',
             		  data:resvnCtrl.user

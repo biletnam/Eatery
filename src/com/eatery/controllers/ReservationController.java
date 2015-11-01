@@ -11,6 +11,7 @@ import com.eatery.models.Reservation;
 import com.eatery.services.ReservationService;
 
 @Controller
+@RequestMapping(value="/rest/reservations")
 public class ReservationController {
 	
 	private ReservationService reservationService;

@@ -33,15 +33,14 @@
             	$scope.mainCtrl.isAppLoading=true;
             	$http({
             		  method: 'POST',
-            		  url: '/Eatery/save',
+            		  url: '/Eatery/rest/reservations/save',
             		  contentType:'application/json',
             		  dataType:'json',
             		  data:resvnCtrl.user
         		}).then(function successCallback(response) {
         				resvnCtrl.confirmation=response.data;
         				reservationConfService.setConfirmation(response.data);
-        				//$scope.mainCtrl.isAppLoading=true;
-        				//resvnCtrl.openModal();
+        				console.log(response.data);
         				$location.path("/reservation/confirmation");
         		  }, function errorCallback(response) {
         		    

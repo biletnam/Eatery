@@ -32,7 +32,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public Reservation save(Reservation reservation) {
-		int availableTable=seatingService.getNextAvailableTable();
+		int availableTable=seatingService.getNextAvailableTable(reservation.getTime());
 		if(availableTable!=0){
 			Seating seating=new Seating(availableTable,reservation);
 			reservation.setAssigned(true);

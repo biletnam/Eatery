@@ -10,22 +10,22 @@
 
         $routeProvider
             .when('/',{
-                templateUrl:'partials/landing.html'
+                templateUrl:'static/partials/landing.html'
             })
             .when('/reservation',{
-                templateUrl:'partials/reservation.html'
+                templateUrl:'static/partials/reservation.html'
             })
             .when('/login',{
-                templateUrl:'partials/login.html'
+                templateUrl:'static/partials/login.html'
             })
             .when('/owner',{
-                templateUrl:'partials/owner.html'
+                templateUrl:'static/partials/owner.html'
             })
             .when('/operations',{
-                templateUrl:'partials/operations.html'
+                templateUrl:'static/partials/operations.html'
             })
             .when('/reservation/confirmation',{
-            	templateUrl:'partials/confirmation.html'
+            	templateUrl:'static/partials/confirmation.html'
             })
             .otherwise({
                 redirectTo:'/'

@@ -1,4 +1,4 @@
-<div id="owner" class="container" ng-controller="OperationsController as oprCtrl" >
+<div id="owner" class="container" data-ng-controller="OperationsController as oprCtrl" >
 
 	<div>
         <h1 class="text-center page-heading">Eatery Operations</h1>
@@ -40,10 +40,10 @@
                 <span class="glyphicon glyphicon-th"></span><span> Seating</span>
             </uib-tab-heading>
             <div class="row">
-                <div class="col-lg-col-xs-10 col-xs-offset-1">
+                <div class="col-lg-col-xs-10 col-xs-offset-1 text-center">
                     <ul>
-                        <li class="seat text-center pointer" data-ng-repeat="seat in oprCtrl.seats">
-                            <div>{{seat}}</div>
+                        <li class="seat text-center pointer" data-ng-class="{assigned:seat.status=='assigned'}" data-ng-repeat="seat in oprCtrl.seats" data-ng-click="oprCtrl.changeSelectedSeat(seat)" data-seat>
+                            {{seat.id}}
                         </li>
                     </ul>
                 </div>
@@ -53,9 +53,9 @@
                     <div class="seating-pic text-center">
                         <div class="seat-pic"></div>
                         <div class="table-pic text-white">
-                            <h4>table #1</h4>
+                            <h4>table {{oprCtrl.selected_seat.id}}</h4>
                             <h5>Occupied by</h5>
-                            <span> <a href="#" class="text-white"> 12345 </a> </span>
+                            <span> <a href="#" class="text-white">{{oprCtrl.selected_seat.confirmation}} </a> </span>
                         </div>
                         <div class="seat-pic"></div>
                     </div>

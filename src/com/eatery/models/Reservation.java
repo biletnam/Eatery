@@ -1,22 +1,22 @@
 package com.eatery.models;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDateTime;
+import com.eatery.customClasses.CustomDateSerializer;
 import com.eatery.customClasses.CustomJsonDateDeserializer;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 @Entity
 @Table(name="reservations")
@@ -34,9 +34,8 @@ public class Reservation implements Serializable{
 	private String name;
 	private String email;
 	private String phone;
-	
-	@JsonDeserialize(using=CustomJsonDateDeserializer.class)
-	private Date time;
+	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+	private LocalDateTime time;
 	private int seats;
 	private String note;
 	private boolean assigned;
@@ -47,7 +46,7 @@ public class Reservation implements Serializable{
 	public Reservation() { }
 	
 	public Reservation(String name, String email, String phone,
-			Date time, int seats, String note,boolean assigned) {
+			LocalDateTime time, int seats, String note,boolean assigned) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -90,12 +89,13 @@ public class Reservation implements Serializable{
 		this.phone = phone;
 	}
 
-	
-	public Date getTime() {
+	@JsonSerialize(using=CustomDateSerializer.class)
+	public LocalDateTime getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	@JsonDeserialize(using=CustomJsonDateDeserializer.class)
+	public void setTime(LocalDateTime time) {
 		this.time = time;
 	}
 

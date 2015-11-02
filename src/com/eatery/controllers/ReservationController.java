@@ -11,6 +11,7 @@ import com.eatery.models.Reservation;
 import com.eatery.services.ReservationService;
 
 @Controller
+@RequestMapping(value="/rest/reservations")
 public class ReservationController {
 	
 	private ReservationService reservationService;
@@ -23,6 +24,7 @@ public class ReservationController {
 	@RequestMapping(value="/save",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Reservation save(@RequestBody Reservation reservation) {
-		return reservationService.save(reservation);	
+		Reservation savedreservation=reservationService.save(reservation);
+		return savedreservation;	
 	}
 }

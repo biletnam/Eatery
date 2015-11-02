@@ -5,14 +5,6 @@
 (function(){
 
     var eateryControllers=angular.module('eateryApp');
-
-    /*eateryControllers.controller('ReservationConfController',function(confirmation){
-        
-    	var reservationConfCtrl=this;
-    	reservationConfCtrl.confirmation=confirmation;
-		console.log(reservationConfCtrl.confirmation);
-    	
-    });*/
     
     eateryControllers.controller('ReservationConfController',['reservationConfService',function(reservationConfService){
         

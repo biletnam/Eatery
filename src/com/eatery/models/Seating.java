@@ -3,6 +3,8 @@ package com.eatery.models;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -21,6 +23,8 @@ public class Seating implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	private int seating;
 	@ManyToOne
 	private Reservation reservation;
@@ -30,6 +34,14 @@ public class Seating implements Serializable{
 	public Seating(int seating, Reservation reservation) {
 		this.seating = seating;
 		this.reservation = reservation;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getSeating() {

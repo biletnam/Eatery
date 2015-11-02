@@ -40,8 +40,7 @@
         		}).then(function successCallback(response) {
         				resvnCtrl.confirmation=response.data;
         				reservationConfService.setConfirmation(response.data);
-        				//$scope.mainCtrl.isAppLoading=true;
-        				//resvnCtrl.openModal();
+        				console.log(response.data);
         				$location.path("/reservation/confirmation");
         		  }, function errorCallback(response) {
         		    

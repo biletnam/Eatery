@@ -4,14 +4,13 @@
 
 (function(){
 
-    var eateryControllers=angular.module('eateryApp');
+    angular.module('eateryApp')
+    	.controller('ReservationConfController',ReservationConfController);
     
-    eateryControllers.controller('ReservationConfController',['reservationConfService',function(reservationConfService){
-        
+    ReservationConfController.$inject=['reservationConfService'];
+    function ReservationConfController(reservationConfService) {
     	var reservationConfCtrl=this;
     	reservationConfCtrl.confirmation=reservationConfService.getConfirmation();
-		console.log(reservationConfCtrl.confirmation);
-    	
-    }]);
-
+	}
+    
 })();

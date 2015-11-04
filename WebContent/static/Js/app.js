@@ -13,19 +13,27 @@
                 templateUrl:'static/partials/landing.html'
             })
             .when('/reservation',{
-                templateUrl:'static/partials/reservation.html'
+                templateUrl:'static/partials/reservation.html',
+                controller:'ReservationController',
+                controllerAs:'reservationCtrl'
             })
             .when('/login',{
                 templateUrl:'static/partials/login.html'
             })
             .when('/owner',{
-                templateUrl:'static/partials/owner.html'
+                templateUrl:'static/partials/owner.html',
+                controller:'OwnerController',
+                controllerAs:'ownCtrl'
             })
             .when('/operations',{
-                templateUrl:'static/partials/operations.html'
+                templateUrl:'static/partials/operations.html',
+                controller:'OperationsController',
+                controllerAs:'oprCtrl'
             })
             .when('/reservation/confirmation',{
-            	templateUrl:'static/partials/confirmation.html'
+            	templateUrl:'static/partials/confirmation.html',
+                controller:'ReservationController',
+                controllerAs:'resvnCtrl'
             })
             .otherwise({
                 redirectTo:'/'

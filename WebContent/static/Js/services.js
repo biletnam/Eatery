@@ -4,19 +4,25 @@
 
 (function(){
 	
-	var services=angular.module('eateryApp');
-	
-	services.factory('reservationConfService',function() {
-		var factory={}
-		factory.confirmation={};
-		factory.setConfirmation=function(conf){
-			factory.confirmation=conf;
-		}
-		
-		factory.getConfirmation=function(){
-			return factory.confirmation;
-		}
-		return factory;
-	});
+	angular.module('eateryApp')
+		.factory('reservationConfService',function() {
+			
+			var confirmation={};
+			var factory={
+				setConfirmation:setConfirmation,
+				getConfirmation:getConfirmation			
+			}
+			
+			return factory;
+			
+			function setConfirmation(conf){
+				factory.confirmation=conf;
+			}
+			
+			function getConfirmation(){
+				return factory.confirmation;
+			}
+			
+		});
 	
 })();

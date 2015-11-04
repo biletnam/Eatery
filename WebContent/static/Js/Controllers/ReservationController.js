@@ -4,58 +4,47 @@
 
 (function(){
 
-    var eateryControllers=angular.module('eateryApp');
+    angular.module('eateryApp')
+    	.controller('ReservationController',ReservationController);
 
-    eateryControllers.controller('ReservationController',['$scope','$http','$uibModal','reservationConfService','$location',function($scope,$http,$uibModal,reservationConfService,$location){
-        var resvnCtrl=this;
-        resvnCtrl.user={};
-        resvnCtrl.confirmation={};
-        
-        resvnCtrl.openModal = function () {
-        	var confirmationModal = $uibModal.open({
-                animation: true,
-                templateUrl: 'myModalContent.html',
-                size: "md",
-                controller:'ReservationConfController as reservationConfCtrl',
-                resolve: {
-                	confirmation: function () {
-                      return resvnCtrl.confirmation;
-                    }
-                  }
-            });
-        }
+    ReservationController.$inject=['$scope','$http','$uibModal','reservationConfService','$location'];
+    function ReservationController($scope,$http,$uibModal,reservationConfService,$location) {
+		
+    	 var resvnCtrl=this;
+         resvnCtrl.user={};
+         resvnCtrl.confirmation={};
+         
+         /*send  resvnCtrl.user object to database with $http
+          * route to confirmation page if success
+          * show error if $hhtp call fails
+          */  	
+         resvnCtrl.submitForm=function(isValid){
+             if(isValid==true){
+             	$scope.mainCtrl.isAppLoading=true;
+             	$http({
+             		  method: 'POST',
+             		  url: '/Eatery/rest/reservations/save',
+             		  contentType:'application/json',
+             		  dataType:'json',
+             		  data:resvnCtrl.user
+         		}).then(function successCallback(response) {
+         				resvnCtrl.confirmation=response.data;
+         				reservationConfService.setConfirmation(response.data);
+         				$location.path("/reservation/confirmation");
+         		  }, function errorCallback(response) {
+         		    
+         		 });
+             }
+             else{
+             }
 
-        resvnCtrl.submitForm=function(isValid){
-            if(isValid==true){
-                //send  resvnCtrl.user object to database with $http
-                // route to different page. Ex: confirmation
-            	
-            	$scope.mainCtrl.isAppLoading=true;
-            	$http({
-            		  method: 'POST',
-            		  url: '/Eatery/rest/reservations/save',
-            		  contentType:'application/json',
-            		  dataType:'json',
-            		  data:resvnCtrl.user
-        		}).then(function successCallback(response) {
-        				resvnCtrl.confirmation=response.data;
-        				reservationConfService.setConfirmation(response.data);
-        				console.log(response.data);
-        				$location.path("/reservation/confirmation");
-        		  }, function errorCallback(response) {
-        		    
-        		 });
-            }
-            else{
-                //show errors
-            }
+         }
 
-        }
-
-        resvnCtrl.resetForm=function(){
-            resvnCtrl.user={};
-            resvnCtrl.form.$setPristine();
-        }
-    }]);
+         resvnCtrl.resetForm=function(){
+             resvnCtrl.user={};
+             resvnCtrl.form.$setPristine();
+         }
+    	
+	}
 
 })();

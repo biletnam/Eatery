@@ -5,9 +5,11 @@
 
 (function(){
 
-    var eateryControllers=angular.module('eateryApp');
+    angular.module('eateryApp')
+    	.controller('OperationsController',OperationsController);
 
-    eateryControllers.controller('OperationsController',['$scope','$timeout',function($scope,$timeout){
+    OperationsController.$inject=['$scope','$timeout'];
+    function OperationsController($scope,$timeout){
 
         /*
            make ajax call to get all reservations for today
@@ -48,7 +50,6 @@
         oprCtrl.currentPage = 1;
         oprCtrl.numPerPage = 10;
         oprCtrl.maxSize = 5;
-        
         oprCtrl.seats=[
             {"id":1,"status":"assigned","confirmation":12345},
             {"id":2,"status":"assigned","confirmation":12346},
@@ -66,8 +67,19 @@
             {"id":14,"status":"assigned","confirmation":12353},
             {"id":15,"status":"assigned","confirmation":12354},
         ];
-        
-        oprCtrl.selected_seat=oprCtrl.seats[0];
+       
+        oprCtrl.selected_seat=oprCtrl.seats[0];     
+        oprCtrl.reservationsBySeat=[
+                {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
+                {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
+                {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
+                {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
+                {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
+                {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
+                {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
+                {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
+                {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"}
+            ];
         
         oprCtrl.changeSelectedSeat=function(seat){
         	$scope.$parent.mainCtrl.isAppLoading=true;
@@ -77,17 +89,6 @@
             }, 1000);
         }
 
-        oprCtrl.reservationsBySeat=[
-            {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
-            {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
-            {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
-            {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
-            {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
-            {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
-            {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"},
-            {"name":"Akshay arolkar", "phone":"4324134679", "time": "10/17/2015 5:00 PM", "seats":"1", "status":"waiting"},
-            {"name":"Lokesh cherukuri", "phone":"4324134679", "time": "10/16/2015 1:38 PM", "seats":"2", "status":"allotted"}
-        ];
-    }]);
+    }
 
 })();

@@ -49,4 +49,9 @@ public class ReservationServiceImpl implements ReservationService {
 		return savedReservation;
 	}
 
+	@Override
+	public Reservation getReservation(int id) {
+		return reservationRepo.getReservation(id);
+	}
+
 }

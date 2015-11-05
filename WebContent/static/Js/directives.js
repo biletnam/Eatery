@@ -46,12 +46,18 @@
         })
         .directive('datePicker',function(){
            var directive={
+        	   require:'ngModel',
                scope:false,
-               link:function(scope,ele,attrs){
+               link:function(scope,ele,attrs,ngModel){
                    $('#datetimepicker').datetimepicker();
-                   $(ele).bind('click',function(){
-                	   scope.resvnCtrl.user.time=$('#time').val();
-                   });
+                   $(ele).bind('blur',function(){
+                	   scope.$apply(update);
+	               });
+	                 
+                   function update() {
+                	   ngModel.$setViewValue($('#time').val());
+                       ngModel.$render();
+	               }
                }
            };
             return directive;

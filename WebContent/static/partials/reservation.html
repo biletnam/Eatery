@@ -8,7 +8,7 @@
 
                 <div class="form-group" data-ng-class="{ 'has-error': resvnCtrl.form.name.$invalid && (resvnCtrl.form.name.$dirty || resvnCtrl.form.$submitted) }">
                     <label class="control-label">Your Name</label>
-                    <input type="text" name="name" id="name" data-ng-model="resvnCtrl.user.name"
+                    <input type="text" name="name" id="name" data-ng-model="resvnCtrl.reservation.name"
                            placeholder="Enter Name" class="form-control" autocomplete="off"
                            required data-ng-minlength="4" >
                     <div data-ng-messages="resvnCtrl.form.name.$error" data-ng-if="resvnCtrl.form.name.$dirty || resvnCtrl.form.$submitted">
@@ -19,7 +19,7 @@
 
                 <div class="form-group" data-ng-class="{'has-error':resvnCtrl.form.email.$invalid && (resvnCtrl.form.email.$dirty || resvnCtrl.form.$submitted) }">
                     <label class="control-label">Email address</label>
-                    <input type="email" name="email" id="email" data-ng-model="resvnCtrl.user.email"
+                    <input type="email" name="email" id="email" data-ng-model="resvnCtrl.reservation.email"
                            placeholder="Enter Email Id" class="form-control" autocomplete="off" required>
                     <div data-ng-messages="resvnCtrl.form.email.$error" data-ng-if="resvnCtrl.form.email.$dirty || resvnCtrl.form.$submitted">
                         <p class="help-block" data-ng-message="required">Email required</p>
@@ -29,7 +29,7 @@
 
                 <div class="form-group" data-ng-class="{'has-error':resvnCtrl.form.phone.$invalid && (resvnCtrl.form.phone.$dirty || resvnCtrl.form.$submitted) }">
                     <label class="control-label">Phone Number</label>
-                    <input type="text" name="phone" id="phone" data-ng-model="resvnCtrl.user.phone"
+                    <input type="text" name="phone" id="phone" data-ng-model="resvnCtrl.reservation.phone"
                            placeholder="Enter Phone Number" class="form-control" autocomplete="off"
                             required  data-ng-pattern="/^[0-9]{10}$/">
                     <div data-ng-messages="resvnCtrl.form.phone.$error" data-ng-if="resvnCtrl.form.phone.$dirty || resvnCtrl.form.$submitted">
@@ -41,20 +41,20 @@
                 <div class="form-group" data-ng-class="{'has-error':resvnCtrl.form.time.$invalid && (resvnCtrl.form.time.$dirty || resvnCtrl.form.$submitted) }">
                     <label class="control-label">Date-Time</label>
                     <div class='input-group date' id='datetimepicker'>
-                        <input type="text" name="time" id="time" data-ng-model="resvnCtrl.user.time"
-                               placeholder="Enter Desired Time" class="form-control">
-                        <span class="input-group-addon pointer" data-date-picker>
+                        <input type="text" name="time" id="time" data-ng-model="resvnCtrl.reservation.time"
+                               placeholder="Enter Desired Time" class="form-control" data-date-picker required>
+                        <span class="input-group-addon pointer">
                             <i class="fa fa-calendar"></i>
                         </span>
                     </div>
-                    <div data-ng-messages="resvnCtrl.form.time.$error" data-ng-if="resvnCtrl.form.time.$dirty || resvnCtrl.form.$submitted">
+                    <div data-ng-messages="resvnCtrl.form.time.$error" data-ng-if="resvnCtrl.form.time.$dirty && (resvnCtrl.form.time.$invalid || resvnCtrl.form.$submitted)">
                         <p class="help-block" data-ng-message="required">Date and Time required</p>
                     </div>
                 </div>
 
                 <div class="form-group" data-ng-class="{'has-error':resvnCtrl.form.seats.$invalid && (resvnCtrl.form.seats.$dirty || resvnCtrl.form.$submitted) }">
                     <label class="control-label">Seats desired</label>
-                    <input type="number" min="1" name="seats" id="seats" data-ng-model="resvnCtrl.user.seats"
+                    <input type="number" min="1" name="seats" id="seats" data-ng-model="resvnCtrl.reservation.seats"
                            placeholder="Enter required seats"  class="form-control"
                            required data-ng-min="1">
                     <div data-ng-messages="resvnCtrl.form.seats.$error" data-ng-if="resvnCtrl.form.seats.$dirty || resvnCtrl.form.$submitted">
@@ -65,7 +65,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Special Note</label>
-                    <input type="text" name="note" id="note" data-ng-model="resvnCtrl.user.note" placeholder="Special note" class="form-control">
+                    <input type="text" name="note" id="note" data-ng-model="resvnCtrl.reservation.note" placeholder="Special note" class="form-control">
                 </div>
 
                 <div class="form-group">

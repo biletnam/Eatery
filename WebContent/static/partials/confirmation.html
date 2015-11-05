@@ -2,35 +2,35 @@
     <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
     	<h2 class="text-center page-heading">Reservation Confirmation</h2>
     	<table class="table table-bordered medium-vertical-top-margin">
-	    	<tr data-ng-if="reservationConfCtrl.confirmation.assigned==true">
+	    	<tr data-ng-if="resvnConfCtrl.confirmation.assigned==true">
 	    		<td>Reservation status</td> <td>Reserved</td>
 	    	</tr>
-	    	<tr data-ng-if="reservationConfCtrl.confirmation.assigned==false">
+	    	<tr data-ng-if="resvnConfCtrl.confirmation.assigned==false">
 	    		<td>Reservation status</td> <td>Waiting</td>
 	    	</tr>
 	    	<tr>
-	    		<td>Name</td> <td>{{reservationConfCtrl.confirmation.name}}</td>
+	    		<td>Name</td> <td>{{resvnConfCtrl.confirmation.name}}</td>
 	    	</tr>
 	    	<tr>
-	    		<td>Email</td> <td>{{reservationConfCtrl.confirmation.email}}</td>
+	    		<td>Email</td> <td>{{resvnConfCtrl.confirmation.email}}</td>
 	    	</tr>
 	    	<tr>
-	    		<td>Phone</td> <td>{{reservationConfCtrl.confirmation.phone}}</td>
+	    		<td>Phone</td> <td>{{resvnConfCtrl.confirmation.phone}}</td>
 	    	</tr>
 	    	<tr>
-	    		<td>Date-Time</td> <td>{{reservationConfCtrl.confirmation.time}}</td>
+	    		<td>Date-Time</td> <td>{{resvnConfCtrl.confirmation.time}}</td>
 	    	</tr>
 	    	<tr>
-	    		<td>Total Seats</td> <td>{{reservationConfCtrl.confirmation.seats}}</td>
+	    		<td>Total Seats</td> <td>{{resvnConfCtrl.confirmation.seats}}</td>
 	    	</tr>
 	    	<tr>
 	    		<td>Table Numbers</td> 
 	    		<td>
-	    			<span data-ng-repeat="table in reservationConfCtrl.confirmation.tables">T-{{table.seating}} </span>
+	    			<span data-ng-repeat="table in resvnConfCtrl.confirmation.tables">T-{{table.seating}} </span>
 	    		</td>
 	    	</tr>
 	    	<tr>
-	    		<td>Note</td> <td>{{reservationConfCtrl.confirmation.note}}</td>
+	    		<td>Note</td> <td>{{resvnConfCtrl.confirmation.note}}</td>
 	    	</tr>
 	    </table>
 	    <button class="btn btn-primary btn-lg col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">Create eatery account   <i class="fa fa-long-arrow-right"></i></button>

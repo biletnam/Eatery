@@ -9,8 +9,8 @@
     
     ReservationConfController.$inject=['reservationConfService'];
     function ReservationConfController(reservationConfService) {
-    	var reservationConfCtrl=this;
-    	reservationConfCtrl.confirmation=reservationConfService.getConfirmation();
+    	var resvnConfCtrl=this;
+    	resvnConfCtrl.confirmation=reservationConfService.getConfirmation();
 	}
     
 })();

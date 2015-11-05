@@ -15,7 +15,7 @@
             .when('/reservation',{
                 templateUrl:'static/partials/reservation.html',
                 controller:'ReservationController',
-                controllerAs:'reservationCtrl'
+                controllerAs:'resvnCtrl'
             })
             .when('/login',{
                 templateUrl:'static/partials/login.html'
@@ -32,8 +32,8 @@
             })
             .when('/reservation/confirmation',{
             	templateUrl:'static/partials/confirmation.html',
-                controller:'ReservationController',
-                controllerAs:'resvnCtrl'
+                controller:'ReservationConfController',
+                controllerAs:'resvnConfCtrl'
             })
             .otherwise({
                 redirectTo:'/'

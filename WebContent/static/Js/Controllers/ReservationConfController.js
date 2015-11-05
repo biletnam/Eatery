@@ -7,10 +7,21 @@
     angular.module('eateryApp')
     	.controller('ReservationConfController',ReservationConfController);
     
-    ReservationConfController.$inject=['reservationConfService'];
-    function ReservationConfController(reservationConfService) {
+    ReservationConfController.$inject=['$http','$routeParams'];
+    function ReservationConfController($http,$routeParams) {
+
     	var resvnConfCtrl=this;
-    	resvnConfCtrl.confirmation=reservationConfService.getConfirmation();
+    	
+    	$http({
+	   		  method: 'GET',
+	   		  url: '/Eatery/rest/reservations/'+$routeParams.id,
+	   		  contentType:'application/json',
+	   		  dataType:'json'
+		}).then(function successCallback(response) {
+			  resvnConfCtrl.confirmation=response.data;
+		  }, function errorCallback(response) {
+		    
+		 });
 	}
     
 })();

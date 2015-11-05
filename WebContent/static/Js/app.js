@@ -30,7 +30,7 @@
                 controller:'OperationsController',
                 controllerAs:'oprCtrl'
             })
-            .when('/reservation/confirmation',{
+            .when('/reservation/:id',{
             	templateUrl:'static/partials/confirmation.html',
                 controller:'ReservationConfController',
                 controllerAs:'resvnConfCtrl'

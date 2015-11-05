@@ -3,10 +3,12 @@ package com.eatery.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.eatery.models.Reservation;
 import com.eatery.services.ReservationService;
 
@@ -26,5 +28,12 @@ public class ReservationController {
 	public Reservation save(@RequestBody Reservation reservation) {
 		Reservation savedreservation=reservationService.save(reservation);
 		return savedreservation;	
+	}
+	
+	@RequestMapping(value="/{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Reservation show(@PathVariable("id") int id) {
+		Reservation reservation=reservationService.getReservation(id);
+		return reservation;	
 	}
 }

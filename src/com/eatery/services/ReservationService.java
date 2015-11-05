@@ -5,4 +5,5 @@ import com.eatery.models.Reservation;
 public interface ReservationService {
 
 	public Reservation save(Reservation reservation);
+	public Reservation getReservation(int id);
 }

@@ -11,10 +11,18 @@
     function ReservationController($scope,$http,$uibModal,reservationConfService,$location) {
 		
     	 var resvnCtrl=this;
-         resvnCtrl.user={};
+         resvnCtrl.reservation={};
          resvnCtrl.confirmation={};
+         resvnCtrl.isOpen=false;
          
-         /*send  resvnCtrl.user object to database with $http
+         resvnCtrl.openCalendar = function(e) {
+        	 e.preventDefault();
+             e.stopPropagation();
+
+             resvnCtrl.isOpen = true;
+         };
+         
+         /*send  resvnCtrl.reservation object to database with $http
           * route to confirmation page if success
           * show error if $hhtp call fails
           */  	
@@ -26,11 +34,10 @@
              		  url: '/Eatery/rest/reservations/save',
              		  contentType:'application/json',
              		  dataType:'json',
-             		  data:resvnCtrl.user
+             		  data:resvnCtrl.reservation
          		}).then(function successCallback(response) {
          				resvnCtrl.confirmation=response.data;
-         				reservationConfService.setConfirmation(response.data);
-         				$location.path("/reservation/confirmation");
+         				$location.path("/reservation/"+resvnCtrl.confirmation.id);
          		  }, function errorCallback(response) {
          		    
          		 });
@@ -41,7 +48,7 @@
          }
 
          resvnCtrl.resetForm=function(){
-             resvnCtrl.user={};
+             resvnCtrl.reservation={};
              resvnCtrl.form.$setPristine();
          }
     	

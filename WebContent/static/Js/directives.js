@@ -44,6 +44,17 @@
             };
             return directive;
         })
+        .directive('moveTop',function(){
+
+            var directive={
+                link:function(scope,ele,attrs){
+                    ele.bind('click',function(){
+                    	$('html, body').animate({scrollTop:0}, 'slow');
+                    });
+                }
+            };
+            return directive;
+        })
         .directive('datePicker',function(){
            var directive={
         	   require:'ngModel',

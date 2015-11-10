@@ -7,12 +7,13 @@
     angular.module('eateryApp')
 	    .controller('MainController',MainController);
     
-    	MainController.$inject=['$scope','$rootScope','$timeout'];
-	    function MainController($scope,$rootScope,$timeout){
+    	MainController.$inject=['$scope','$rootScope','$timeout','yelp'];
+	    function MainController($scope,$rootScope,$timeout,yelp){
 	
 	        var mainCtrl=this;
 	        mainCtrl.isAppLoading=false;
 	        mainCtrl.alerts = [];
+	        mainCtrl.categories=['American','Indian','Chineese','Italian'];
 	
 	        $rootScope.$on('$routeChangeStart',function(){
 	            mainCtrl.isAppLoading=true;

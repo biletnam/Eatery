@@ -1,9 +1,10 @@
 <div class="container">
     <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12 col-xs-12 ">
         <div>
-            <h2 class="text-center page-heading">Make a reservation</h2>
+            <h2 class="text-center page-heading text-primary">Make a reservation</h2>
+            <div class="border"></div>
         </div>
-        <div>
+        <div class="small-vertical-top-margin">
             <form role="form" name="resvnCtrl.form" data-ng-submit="resvnCtrl.submitForm(resvnCtrl.form.$valid)" novalidate>
 
                 <div class="form-group" data-ng-class="{ 'has-error': resvnCtrl.form.name.$invalid && (resvnCtrl.form.name.$dirty || resvnCtrl.form.$submitted) }">

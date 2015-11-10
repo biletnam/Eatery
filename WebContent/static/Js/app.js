@@ -35,6 +35,11 @@
                 controller:'ReservationConfController',
                 controllerAs:'resvnConfCtrl'
             })
+            .when('/restaurants',{
+            	templateUrl:'static/partials/restaurants.html',
+            	controller:'RestaurantsController',
+            	controllerAs:'rstrntsCtrl'
+            })
             .otherwise({
                 redirectTo:'/'
             });

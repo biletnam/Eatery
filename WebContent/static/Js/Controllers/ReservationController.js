@@ -7,12 +7,11 @@
     angular.module('eateryApp')
     	.controller('ReservationController',ReservationController);
 
-    ReservationController.$inject=['$scope','$http','$uibModal','reservationConfService','$location'];
-    function ReservationController($scope,$http,$uibModal,reservationConfService,$location) {
+    ReservationController.$inject=['$scope','$http','$uibModal','$location'];
+    function ReservationController($scope,$http,$uibModal,$location) {
 		
     	 var resvnCtrl=this;
          resvnCtrl.reservation={};
-         resvnCtrl.confirmation={};
          resvnCtrl.isOpen=false;
          
          resvnCtrl.openCalendar = function(e) {
@@ -36,15 +35,13 @@
              		  dataType:'json',
              		  data:resvnCtrl.reservation
          		}).then(function successCallback(response) {
-         				resvnCtrl.confirmation=response.data;
-         				$location.path("/reservation/"+resvnCtrl.confirmation.id);
+         				$location.path("/reservation/"+response.data.id);
          		  }, function errorCallback(response) {
          		    
          		 });
              }
              else{
              }
-
          }
 
          resvnCtrl.resetForm=function(){

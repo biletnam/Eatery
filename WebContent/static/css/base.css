@@ -3,8 +3,13 @@ html,body{
     margin-bottom: 30px;
     font-family: "Proxima Nova", sans-serif;
     font-size: 16px;
+    background: #F8F8F8;
 }
-
+img{
+	user-drag: none; 
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+}
 h1{
 	font-weight: 100;
 }
@@ -44,14 +49,17 @@ section{
     background: #ffffff;
     border-top: 5px solid #ffffff;
 }
+.very-small-vertical-top-margin {
+    margin-top: 0.5em ;
+}
 .small-vertical-top-margin {
     margin-top: 1em ;
 }
 .medium-vertical-top-margin {
-    margin-top: 2em ;
+    margin-top: 1.5em ;
 }
 .large-vertical-top-margin {
-    margin-top: 3em ;
+    margin-top: 2em ;
 }
 .dotted-underline{
     text-decoration: none;
@@ -289,5 +297,31 @@ ul.nav-pills{
     position: absolute;top:4em;left: 35%; z-index: 1000;
     width: 350px;margin: auto;
 }
-
-
+#simple-dropdown{
+	background-color: inherit;
+}
+#categories .dropdown-menu .#category{
+	white-space: nowrap;
+	padding: 0px 20px;
+}
+#categories .dropdown-menu{
+    border-top: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.restaurantfilters{
+	padding: 20px 20px 0 20px;
+	text-align: center;
+}
+.border{
+	border-top: 1px solid #204D73;
+}
+.odd-row,.even-row{
+	padding: 20px;
+	border-radius:2px;
+	box-shadow: 2px 2px 2px #aeaeae;
+	background: #ffffff;
+}
+.even-row{
+	background: #FAFCFE;
+}

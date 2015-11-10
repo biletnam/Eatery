@@ -10,4 +10,9 @@ public class MainController {
 	public String home(){
 		return "index";
 	}
+	
+	@RequestMapping(value={"/login","/reservation","/owner","/operations","/restaurants"})
+    public String app() {
+        return "forward:/index";
+    }
 }

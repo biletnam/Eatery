@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 ">
+    	<h2 class="text-center page-heading text-primary">Places you can find <span data-ng-bind="rstrntsCtrl.inputs.term"></span> food</h2>
+    	<div class="border"></div>
+    	<div id="restaurants text-center">
+    		<div class="restaurantfilters">
+	    		<form class="form-inline" role="form">
+				  <div class="row">
+					  <div class="form-group col-sm-6">
+					    <label class="control-label" for="search">Filter by name:</label>
+					    <input type="text" class="form-control" id="search" data-ng-model="rstrntsCtrl.searchfilter">
+					  </div>
+					  <div class="form-group col-sm-6">
+					    <label class="control-label">Sort by:</label>
+					    <select class="form-control" data-ng-init="rstrntsCtrl.orderfilter='name'" data-ng-model="rstrntsCtrl.orderfilter">
+						    <option value="name">By Name</option>
+						    <option value="rating">By Rating</option>
+						</select>
+					  </div>
+				  </div>
+				</form>
+			</div>
+    		<div class="restaurant medium-vertical-top-margin" data-ng-repeat="restaurant in rstrntsCtrl.restaurants | filter:rstrntsCtrl.searchfilter | orderBy:rstrntsCtrl.orderfilter" 
+    										data-ng-class-even="'even-row'" data-ng-class-odd="'odd-row'">
+    			<div class="media">
+				  <div class="media-left">
+				    <a href="#">
+				       <img class="media-object img-rounded" alt="restaurant" data-ng-src="{{restaurant.image_url}}">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				  	  <h4 class="media-heading">{{restaurant.name}} ( <span data-ng-repeat-start="category in restaurant.categories track by $index" data-ng-bind="category[0]"></span>, <span data-ng-repeat-end></span> )</h4>
+				  	  <div>
+				  	  	 <strong>Address:</strong> <span data-ng-repeat-start="add in restaurant.location.display_address track by $index" data-ng-bind="add || 'Not Available'"></span>, <span data-ng-repeat-end></span>
+				  	  </div>
+				  	  <div>
+				  	  	 <strong>Rating:</strong> <span data-ng-bind="restaurant.rating"> </span> <img alt="rating" data-ng-src="{{restaurant.rating_img_url}}">
+				  	  </div>
+				  	  <div class="row">
+					  	  <div class="col-sm-4">
+					  	  	 <strong>Tel: </strong><a data-ng-href="tel:{{restaurant.display_phone}}" data-ng-bind="restaurant.display_phone || 'Not Available'"></a>
+					  	  </div>
+				  	  	  <div class="col-sm-4" data-ng-init="coordinate=restaurant.location.coordinate">
+				  	  		  <a data-ng-href="https://maps.google.com/?q={{coordinate.latitude}},{{coordinate.longitude}}" target="_blank"> <i class="fa fa-location-arrow text-info"></i> Open in maps </a>
+				  	  	  </div>
+				  	  	  <div class="col-sm-4">
+				  	  		 <a data-ng-href="{{restaurant.url}}" target="_blank"> <i class="fa fa-yelp text-danger"></i> View on yelp </a>
+				  	  	  </div>
+				  	  </div>
+				  </div>
+				</div>
+    		</div>
+    	
+    	</div>
+    	
+    </div>
+</div>

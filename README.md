@@ -10,4 +10,4 @@ Technology stack:
 ★ Libraries: Jackson, java mail
 
 
-Demo: http://eatery.lokeshcherukuri.me
+Demo: eatery.lokeshcherukuri.me

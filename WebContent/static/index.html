@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html data-ng-app="eateryApp">
 <head>
-    <base href="/Eatery/index.html">
     <meta charset="UTF-8">
     <title>Eatery</title>
     <link rel="icon" type="image/png" href="http://paulferrett.com/fontawesome-favicon/generate.php?icon=rocket">
@@ -39,16 +38,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login">Login</a></li>
-                    <li><a href="owner">Owner</a></li>
-                    <li><a href="operations">Operations</a></li>
+                    <li><a href="#/login">Login</a></li>
+                    <li><a href="#/owner">Owner</a></li>
+                    <li><a href="#/operations">Operations</a></li>
 	            	<li data-uib-dropdown data-on-toggle="toggled(open)" id="categories">
 				      <a href="" id="simple-dropdown" data-uib-dropdown-toggle>
 				        Categories <i class="fa fa-caret-down fa-lg"></i>
 				      </a>
 				      <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
 				        <li class="category" data-ng-repeat="category in mainCtrl.categories">
-				        	<a data-ng-href="restaurants?term={{category}}" data-ng-bind="category"></a>
+				        	<a data-ng-href="#/restaurants?term={{category}}" data-ng-bind="category"></a>
 				        </li>
 				      </ul>
 				    </li>
@@ -68,16 +67,16 @@
 <footer>
 	<div class="footer row text-center" data-ng-hide="mainCtrl.isAppLoading">
 		<div class="col-sm-4">
-			<h5><a href="restaurants?term=american" data-move-top>American food</a></h5>
-			<h5><a href="restaurants?term=indian" data-move-top>Indian food</a></h5>
+			<h5><a href="#/restaurants?term=american" data-move-top>American food</a></h5>
+			<h5><a href="#/restaurants?term=indian" data-move-top>Indian food</a></h5>
 		</div>
 		<div class="col-sm-4 text-center">
 			<h5>&copy lokesh cherukuri</h5>
 			<h5>lokesh.cherukuri@yahoo.com</h5>
 		</div>
 		<div class="col-sm-4">
-			<h5><a href="restaurants?term=chineese" data-move-top>Chineese food</a></h5>
-			<h5><a href="restaurants?term=italian" data-move-top>Italian food</a></h5>
+			<h5><a href="#/restaurants?term=chineese" data-move-top>Chineese food</a></h5>
+			<h5><a href="#/restaurants?term=italian" data-move-top>Italian food</a></h5>
 		</div>
 	</div>
 </footer>

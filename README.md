@@ -9,5 +9,3 @@ Technology stack:
 ★ Build manager: Maven
 ★ Libraries: Jackson, java mail
 
-
-Demo: eatery.lokeshcherukuri.me

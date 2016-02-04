@@ -9,3 +9,4 @@ Technology stack:
 ★ Build manager: Maven
 ★ Libraries: Jackson, java mail
 
+Demo: http://52.72.212.213:8081/Eatery
